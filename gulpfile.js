@@ -191,7 +191,7 @@ gulp.task('prod', [
                     'compileJS',
                     'compileSass',
                     'compileJS',
-                    'MinifyJS',
+                    // 'MinifyJS',
                     'minifyCSS',
                     'minifyHTML'
                   ]);

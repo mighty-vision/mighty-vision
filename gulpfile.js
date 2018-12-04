@@ -61,7 +61,7 @@ gulp.task('i18n', ['compileHandlebars'], function() {
   	stdout: true // default = true, false means don't write stdout
   };
   return gulp.src('./')
-    .pipe(exec('npm start', options))
+    .pipe(exec('npm run start', options))
     .pipe(exec.reporter(reportOptions))
     .pipe(browserSync.reload({
       stream: true

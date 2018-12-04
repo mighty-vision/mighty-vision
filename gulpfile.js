@@ -185,7 +185,7 @@ gulp.task('default', [
 
 ///// Production & Netlify /////
 gulp.task('prod', [
-                    // 'i18n',
+                    'i18n',
                     'prodStaticTransporter',
                     'compileSass',
                     'compileJS',

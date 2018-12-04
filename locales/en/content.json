@@ -1,5 +1,7 @@
 {
   "initScreen" : {
     "title" : "Welcome"
-  }
+  },
+  
+  "baseDir" : "../"
 }

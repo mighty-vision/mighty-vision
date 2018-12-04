@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     exec = require('gulp-exec'),
     watch = require('gulp-watch'),
     gulp = require('gulp'),
+    i18n = require('gulp-i18n-localize'),
     browserSync = require('browser-sync').create();
 
 
@@ -20,6 +21,7 @@ var uglify = require('gulp-uglify'),
 
 
 ///// Settings /////
+var defaultLang = 'ru';
 var src = './src';
 var static = './static';
 var dist = './dist';
@@ -46,26 +48,41 @@ gulp.task('compileHandlebars', ['assemblePartials'], function () {
 });
 
 
-///// I18n //////
-var exec = require('gulp-exec');
+gulp.task('i18n', ['compileHandlebars'], function () {
+	return gulp.src('./.tmp/compiled/**/*.html')
+		.pipe(i18n({
+      localeDir: './locales/',
+      locales: ['ru', 'en'],
+      delimeters: ['@{', '}']
+		}))
+		.pipe(gulp.dest('./.tmp/translated'));
+});
 
-gulp.task('i18n', ['compileHandlebars'], function() {
-  var options = {
-    continueOnError: false, // default = false, true means don't emit error event
-    pipeStdout: false, // default = false, true means stdout is written to file.contents
-    customTemplatingThing: "test" // content passed to lodash.template()
-  };
-  var reportOptions = {
-  	err: true, // default = true, false means don't write err
-  	stderr: true, // default = true, false means don't write stderr
-  	stdout: true // default = true, false means don't write stdout
-  };
-  return gulp.src('./')
-    .pipe(exec('npm run start', options))
-    .pipe(exec.reporter(reportOptions))
+
+///// Transfer default language HTML to dist /////
+gulp.task('transferDefaultLang', ['i18n'], () => {
+  return gulp.src('./.tmp/translated/' + defaultLang + '/**/*.html')
+    .pipe(flatten())
+    .pipe(gulp.dest(dist))
+  }
+);
+
+
+///// Transfer othe languages HTML to dist /////
+gulp.task('transferOtherLangs', ['transferDefaultLang'], () => {
+  return gulp.src([
+                    '.tmp/translated/**/*.html', 
+                    '!.tmp/translated/' + defaultLang + '/**/*.html'
+                  ])
+    .pipe(gulp.dest(dist))
     .pipe(browserSync.reload({
       stream: true
-    }));
+    }))
+  }
+);
+
+gulp.task('runI18n', ['i18n', 'transferDefaultLang', 'transferOtherLangs'], function() {
+  console.log('Locales bulded')
 });
 
 
@@ -170,7 +187,7 @@ gulp.task('minifyHTML', ['i18n'], function() {
 gulp.task('default', [
                       'browserSync',
                       'devStaticTransporter',
-                      'i18n',
+                      'runI18n',
                       'compileSass',
                       'compileJS',
                       ],
@@ -178,20 +195,20 @@ gulp.task('default', [
     gulp.watch([src + '/**/*.scss', 'src/index.scss'], ['compileSass']);
     gulp.watch([src + '/**/*.js', 'src/index.js'], ['compileJS']);
     gulp.watch([src + '/**/*.js', 'src/critical/critical.js']);
-    gulp.watch([src + '/**/*.handlebars'], ['i18n']);
-    gulp.watch(['locales/**/*'], ['i18n']);
+    gulp.watch([src + '/**/*.handlebars'], ['runI18n']);
+    gulp.watch(['locales/**/*'], ['runI18n']);
 });
 
 
 ///// Production & Netlify /////
 gulp.task('prod', [
-                    'i18n',
+                    'runI18n',
                     'prodStaticTransporter',
                     'compileSass',
                     'compileJS',
                     'compileSass',
                     'compileJS',
-                    // 'MinifyJS',
+                    'MinifyJS',
                     'minifyCSS',
-                    // 'minifyHTML'
+                    'minifyHTML'
                   ]);

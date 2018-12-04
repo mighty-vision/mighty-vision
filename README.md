@@ -34,7 +34,7 @@
 
 ### I18n and templating
 
-You need to know that all templating and internationalization are static. So all `.handlebars` components [compiled](https://www.npmjs.com/package/gulp-compile-handlebars) during project building. Locales apply also [during building](https://github.com/claudetech/node-static-i18n)
+You need to know that all templating and internationalization are static. So all `.handlebars` components [compiled](https://www.npmjs.com/package/gulp-compile-handlebars) during project building. Locales apply also [during building](https://github.com/filaraujo/gulp-i18n-localize)
 
 ---
 

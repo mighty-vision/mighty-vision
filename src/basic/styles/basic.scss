@@ -1,0 +1,13 @@
+// Typography
+@font-face {
+  font-family: 'cera_problack';
+  src: url('#{$fonts}/cerapro-black-webfont.woff2') format('woff2'),
+       url('#{$fonts}/cerapro-black-webfont.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  font-family: $fontBase;
+  font-weight: 900;
+}

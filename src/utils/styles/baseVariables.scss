@@ -1,0 +1,19 @@
+// Paths
+$img : '../img';
+$fonts : '../fonts';
+
+
+// Typograhpy
+$systemFonts: -apple-system,
+               BlinkMacSystemFont,
+               "Segoe UI",
+               Roboto,
+               Oxygen-Sans,
+               Ubuntu,
+               Cantarell,
+							 "Helvetica Neue",
+               Helvetica,
+               Arial;
+
+$fontBase: 'cera_problack', #{$systemFonts} sans-serif;
+$fontAlternate: 'cera_problack', #{$systemFonts} sans-serif;

@@ -8,7 +8,6 @@ var gulp = require('gulp'),
     exec = require('gulp-exec'),
     watch = require('gulp-watch'),
     gulp = require('gulp'),
-    path = require('path'),
     browserSync = require('browser-sync').create();
 
 

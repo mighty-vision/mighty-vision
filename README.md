@@ -38,4 +38,12 @@ You need to know that all templating and internationalization are static. So all
 
 ---
 
+### Continuous deployment
+
+Project using netlify for CD. Just create any commit and after 1-2 minutes all project will rebuilded at https://mighty-vision.netlify.com
+
+#### So, if you want change some content just go to [ru](https://github.com/mighty-vision/mighty-vision/edit/master/locales/ru/content.json) or [en](https://github.com/mighty-vision/mighty-vision/edit/master/locales/en/content.json) locales, change them and push changes directly on github.
+
+---
+
 ### Please use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) for all commits at project

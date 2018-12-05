@@ -1,13 +1,29 @@
 // Typography
-@font-face {
-  font-family: 'cera_problack';
+@font-face { // Subset only for Mighty Vision
+  font-family: 'cera_pro';
   src: url('#{$fonts}/cerapro-black-webfont.woff2') format('woff2'),
        url('#{$fonts}/cerapro-black-webfont.woff') format('woff');
   font-weight: 900;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'cera_pro';
+    src: url('#{$fonts}/cerapro-bold-webfont.woff2') format('woff2'),
+         url('#{$fonts}/cerapro-bold-webfont.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ibm_plex_mono';
+    src: url('#{$fonts}/ibmplexmono-text-webfont.woff2') format('woff2'),
+         url('#{$fonts}/ibmplexmono-text-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   font-family: $fontBase;
-  font-weight: 900;
+  font-weight: 400;
 }

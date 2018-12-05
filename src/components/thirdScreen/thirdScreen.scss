@@ -1,0 +1,32 @@
+.thirdScreen {
+  display: flex;
+  flex-direction: column;
+
+  .titleAndDescription {
+    width: 480px;
+    margin: 100px 160px 0 auto;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .description {
+    margin-top: 35px;
+    font-family: $fontAlt;
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 800;
+  }
+
+  .methodology {
+    width: 1040px;
+    height: 171px;
+    margin: 175px auto 120px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #9c00ff;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,15 @@
+.contacts {
+  padding: 0 calc((100% - 1056px) / 2);
+  height: 515px;
+  display: flex;
+  flex-direction: column;
+  background-color: #343437;
+
+  .title {
+    margin-top: 100px;
+    font-family: $fontAlt;
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+  }
+}

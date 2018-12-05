@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@{vars.lang}">
 <head>
 	{{> basicMetas }}
-	<link rel="stylesheet" href="@{content.baseDir}styles/index.css">
+	<link rel="stylesheet" href="@{vars.baseDir}styles/index.css">
 	<title> Mighty Vision </title>
 </head>
 <body>
 	{{> initScreen }}
+	{{> secondScreen }}
+	{{> thirdScreen }}
+	{{> contacts }}
+	{{> footer }}
 
-	<script src="@{content.baseDir}/index.js"></script>
+	<script src="@{vars.baseDir}/scripts/index.js"></script>
 </body>
 </html>

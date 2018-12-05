@@ -1,7 +1,31 @@
 {
   "initScreen" : {
-    "title" : "Welcome"
+    "title" : "Mighty Vision",
+    "description" : "Kompaniya polnogo cikla razrabotki produktov s fokusom na pol'zovatel'skom vzaimodejstvii"
   },
-  
-  "baseDir" : "../"
+
+  "secondScreen" : {
+    "title" : "Missiya kompanii:",
+    "description" : "Razrabatyvaem udobnye i vostrebovannye produkty, rukovodstvuyas' istinnymi zhelaniyami pol'zovatelej"
+  },
+
+  "thirdScreen" : {
+    "title" : "Oblast' razrabotki programmnogo obespecheniya:",
+    "description" : "Analiz, proektirovanie i <br/> razrabotka veb-prilozhenij",
+    "methodology" : "Rabota v kompanii vedyotsya po metodologii Skram"
+  },
+
+  "contacts" : {
+    "title" : "Obratnaya svyaz'",
+    "name" : "Vashe imya",
+    "subject" : "Tema",
+    "mail" : "E-mail",
+    "contactsButton" : "Ostavit' zayavku"
+  },
+
+  "footer" : {
+    "mail" : "hello@mighty.vision",
+    "phone" : "+375 (33) 6771586",
+    "address" : "Minsk. Krasnaya 13"
+  }
 }

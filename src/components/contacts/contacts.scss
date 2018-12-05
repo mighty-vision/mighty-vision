@@ -12,4 +12,62 @@
     font-weight: 800;
     color: white;
   }
+
+  .form {
+    margin-top: 60px;
+    display: flex;
+    color: white;
+  }
+
+  .nameAndMail {
+    width: 380px;
+    margin-right: 40px;
+  }
+
+  .itemWrapper {
+    position: relative;
+  }
+
+  .name,
+  .mail {
+    padding: 7px 0;
+    width: 381px;
+    display: block;
+    border-bottom: 1px solid white;
+  }
+
+  .name {
+    margin-bottom: 30px;
+  }
+
+  .subjectWrapper {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    position: relative;
+    background: repeating-linear-gradient(
+                rgba(0,0,0,0),
+                rgba(0,0,0,0) 31px,
+                #49494b 31px,
+                #49494b 31.7px
+              );
+
+    &::before {
+      content: '';
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 31px;
+      border-top: 1px solid white;
+      // background-color: red;
+    }
+  }
+
+  .subject {
+    width: 100%;
+    height: 100%;
+    display: block;
+    resize: none;
+    line-height: 32px;
+  }
 }

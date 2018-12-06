@@ -5,13 +5,18 @@
   background-size: 100% 73vh;
   color: white;
 
+  .content {
+    width: 1040px;
+    margin: 0 auto;
+  }
+
   .logo {
-    margin: 53px 0 0 58px;
+    margin: 53px 0 0 -78px;
   }
 
   .titleAndDescription {
     width: 650px;
-    margin: 80px 0 0 138px;
+    margin: 80px 0 0 0;
   }
 
   .title {
@@ -24,5 +29,11 @@
     font-size: 30px;
     line-height: 1.25;
     font-weight: 800;
+  }
+
+  .magnifier {
+    position: absolute;
+    top: 50px;
+    right: calc((100% - 1040px) / 2 + 80px);
   }
 }

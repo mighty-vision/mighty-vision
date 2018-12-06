@@ -1,3 +1,16 @@
 <footer class="footer">
+  {{!-- Vcard spec: http://microformats.org/wiki/hcard --}}
 
+  <div class="vcard">
+    <h2 class="fn org">@{content.footer.companyName}</h2>
+
+    <a class="mail" href="mailto:@{content.footer.mail}"> @{content.footer.mail} </a>
+
+    <a class="tel" href="tel:@{content.footer.phone}"> @{content.footer.phone} </a>
+
+    <a class="adr" href="@{content.footer.map}" target="_blank">
+      <span class="locality">@{content.footer.city}</span>
+      <span class="street-address">@{content.footer.address}</span>
+    </a>
+  </div>
 </footer>

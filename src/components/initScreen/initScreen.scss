@@ -22,4 +22,21 @@
     font-size: 16px;
     line-height: 1.4;
   }
+
+  .scrollDown {
+    transform: rotateZ(-90deg);
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    color: grey;
+
+    &::before {
+      content: url('#{$img}/wheel.svg');
+      transform: rotateZ(90deg);
+      display: block;
+      position: absolute;
+      bottom: -7px;
+      left: -35px;
+    }
+  }
 }

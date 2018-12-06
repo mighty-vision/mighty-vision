@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="16px" height="22px" viewBox="0 0 16 30" style="enable-background:new 0 0 16 22;" xml:space="preserve">
+	<style type="text/css">
+		.st0 {
+			fill:none;
+			stroke: lightgrey;
+		}
+
+		.st2 {
+			fill:none;
+			stroke:#000000;
+			stroke-dasharray: 29.528762817382812px;
+			stroke-dashoffset: 0;
+			opacity: 0;
+			animation: pathAnim 1.5s linear infinite;
+			stroke: grey;
+		}
+
+		@keyframes pathAnim {
+			0% {
+				stroke-dashoffset: 0;
+			}
+
+			5% {
+				opacity: 1;
+			}
+
+			85% {
+				stroke-dashoffset: 29.528762817382812px; 
+			}
+
+			85% {
+				opacity: 0;
+			}
+
+			99.99% {
+				opacity: 1;
+				stroke-dashoffset: 29.528762817382812px;
+			}
+
+			1000% {
+				opacity: 0;
+				stroke-dashoffset: 0; 
+			}
+		}
+
+		.mouseWrapper {
+			animation: mouseShake 1.5s ease-out infinite;
+		}
+
+		@keyframes mouseShake {
+			0% {
+				transform: translateY(0); 
+			}
+
+			80% {
+				transform: translateY(3px); 
+			}
+
+			100% {
+				transform: translateY(0); 
+			}
+		}
+
+		.wheel {
+			animation: translateWheel 1.5s ease-out infinite;
+			transform-origin: 50% 10%;
+			stroke: grey;
+		}
+
+		@keyframes translateWheel {
+			0% {
+				transform: translateY(0); 
+			}
+
+			60% {
+				opacity: 1;
+			}
+
+			65% {
+				transform: translateY(7px);
+			}
+
+			60% {
+				opacity: 1;
+			}
+
+			81% {
+				transform: translateY(7px);
+				opacity: 0;
+			}
+
+			81.5% {
+				transform: translateY(4px);
+				opacity: 0;
+			}
+
+			82% {
+				transform: translateY(4px) scale(0.3);
+				opacity: 0;
+			}
+
+			100% {
+				transform: translateY(0);
+				opacity: 1;	
+			}
+		}
+	</style>
+	<g class="mouseWrapper">
+		<path class="st0" d="M0.5,8v6c0,4.1,3.4,7.5,7.5,7.5
+												 s7.5-3.4,7.5-7.5V8c0-4.1-3.4-7.5-7.5-7.5S0.5,3.9,0.5,8z"/>
+
+		<g class="st1">
+			<path class="st2" d="M 8 21.5 C 3.9 21.5 0.5 18.1 0.5 14 L 0.5 8 C 0.5 3.9 3.9 0.5 8 0.5"/>
+		</g>
+
+		<g class="st1">
+			<path class="st2" d="M8,21.5c4.1,0,7.5-3.4,7.5-7.5V8c0-4.1-3.4-7.5-7.5-7.5"/>
+		</g>
+		
+		<path class="st0 wheel" d="M7.5,8.5h1v-4h-1V8.5z"/>
+	</g>
+</svg>

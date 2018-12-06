@@ -1,15 +1,21 @@
 <section class="contacts">
-  <h2 class="title"> @{content.contacts.title} </h2>
+  <div class="contentWrapper">
+    <h2 class="title"> @{content.contacts.title} </h2>
 
-  <form class="form">
-    <div class="nameAndMail">
-      <input class="name" type="firstname" placeholder="@{content.contacts.name}">
+    <form class="form">
+      <div class="itemsWrapper">
+        <div class="nameAndMail">
+          <input class="name" type="firstname" placeholder="@{content.contacts.name}">
 
-      <input class="mail" type="email" placeholder="@{content.contacts.mail}">
-    </div>
+          <input class="mail" type="email" placeholder="@{content.contacts.mail}">
+        </div>
 
-    <div class="subjectWrapper">
-      <textarea class="subject" placeholder="@{content.contacts.subject}"></textarea>
-    </div>
-  </form>
+        <div class="subjectWrapper">
+          <textarea class="subject" placeholder="@{content.contacts.subject}" maxlength="190"></textarea>
+        </div>
+      </div>
+
+      <button class="contactsButton" type="submit">@{content.contacts.contactsButton}</button>
+    </form>
+  </div>
 </section>

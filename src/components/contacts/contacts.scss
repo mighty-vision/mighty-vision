@@ -1,9 +1,13 @@
 .contacts {
-  padding: 0 calc((100% - 1056px) / 2);
   height: 515px;
   display: flex;
-  flex-direction: column;
   background-color: #343437;
+
+  .contentWrapper {
+    max-width: 1040px;
+    flex: 1;
+    margin: 0 auto;
+  }
 
   .title {
     margin-top: 100px;
@@ -16,16 +20,18 @@
   .form {
     margin-top: 60px;
     display: flex;
+    flex-wrap: wrap;
     color: white;
+  }
+
+  .itemsWrapper {
+    width: 100%;
+    display: flex;
   }
 
   .nameAndMail {
     width: 380px;
     margin-right: 40px;
-  }
-
-  .itemWrapper {
-    position: relative;
   }
 
   .name,
@@ -41,15 +47,17 @@
   }
 
   .subjectWrapper {
+    position: relative;
+    top: 2px;
     width: 100%;
     min-height: 100%;
     display: flex;
     position: relative;
     background: repeating-linear-gradient(
                 rgba(0,0,0,0),
-                rgba(0,0,0,0) 31px,
-                #49494b 31px,
-                #49494b 31.7px
+                rgba(0,0,0,0) 32.5px,
+                #49494b 32.5px,
+                #49494b 33.5px
               );
 
     &::before {
@@ -57,9 +65,8 @@
       width: 100%;
       position: absolute;
       left: 0;
-      top: 31px;
+      top: 33.5px;
       border-top: 1px solid white;
-      // background-color: red;
     }
   }
 
@@ -69,5 +76,15 @@
     display: block;
     resize: none;
     line-height: 32px;
+    overflow: hidden;
+  }
+
+  .contactsButton {
+    height: 60px;
+    margin: 55px 0 0 auto;
+    padding: 0 50px 2px 50px;
+    background-image: linear-gradient(-89deg, #00b4ff 0%, #9c00ff 100%);
+    border-radius: 30px;
+    font-weight: 800;
   }
 }

@@ -23,17 +23,62 @@
   font-style: normal;
 }
 
+html {
+  overflow: hidden; // For correct parallax
+}
+
 body {
   font-family: $fontBase;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 input,
-textarea {
+textarea,
+button,
+a {
   padding: 0;
   background-color: transparent;
   border: none;
   color: inherit;
   font-family: inherit;
+  font-size: inherit;
   outline: none;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #00c6ff;
+}
+
+::-moz-selection {
+  background: #00c6ff;
+}
+
+.parallax {
+  height: 100vh;
+  overflow-y: auto;
+  perspective: 300px;
+}
+
+.parallaxGroup {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.parallaxLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.parallaxLayerFront {
+  transform: translateZ(50px) scale(0.8);
+  z-index: 2;
 }

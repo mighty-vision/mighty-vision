@@ -1,8 +1,17 @@
 <section class="initScreen">
-  <div class="titleAndDescription">
-    <h1 class="title"> @{content.initScreen.title} </h1>
-    <p class="description"> @{content.initScreen.description} </p>
+
+  <div class="initAnimation">
+    <video class="video" width="100%" height="100%" muted>
+      <source src="@{vars.baseDir}/videos/vision.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+    </video>
   </div>
 
-  <aside class="scrollDown"> @{content.initScreen.scroll} </aside>
+  <div class="content">
+    <div class="titleAndDescription">
+      <h1 class="title"> @{content.initScreen.title} </h1>
+      <p class="description"> @{content.initScreen.description} </p>
+    </div>
+
+    <aside class="scrollDown"> @{content.initScreen.scroll} </aside>
+  </div>
 </section>

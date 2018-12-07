@@ -31,6 +31,10 @@ body {
   font-family: $fontBase;
   font-weight: 400;
   overflow-x: hidden;
+
+  &.enableScroll {
+    overflow-y: auto;
+  }
 }
 
 input,
@@ -61,7 +65,7 @@ button {
 
 .parallax {
   height: 100vh;
-  overflow-y: auto;
+  overflow: hidden;
   perspective: 300px;
 }
 
@@ -81,4 +85,9 @@ button {
 .parallaxLayerFront {
   transform: translateZ(50px) scale(0.8);
   z-index: 2;
+  pointer-events: none;
+
+  * {
+    pointer-events: auto;
+  }
 }

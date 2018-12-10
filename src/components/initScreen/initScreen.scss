@@ -2,6 +2,11 @@
   width: 100%;
   height: 100vh;
 
+  @include mobile {
+    height: auto;
+    min-height: 100%;
+  }
+
   &.hide {
     display: none;
   }
@@ -13,17 +18,81 @@
     left: 0;
     top: 0;
     background-color: white;
+
+    @at-root body[data-browser="ie"] & {
+      &::before {
+        content: '';
+        width: 15vw;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+        background-color: white;
+        z-index: 1;
+      }
+    }
+    
+    @include mobile {
+      &::before {
+        content: '';
+        width: 133px;
+        height: 150px;
+        position: absolute;
+        left: calc(100vw - 104px);
+        top: -5px;
+        background: url(#{$img}/logoOverlayMobile.svg) no-repeat;
+        background-size: 100% auto;
+        z-index: 1;
+        opacity: 0;
+        animation: showOverlay 0.5s 2.8s forwards;
+      }
+    }
+  }
+
+  @keyframes showOverlay {
+    100% {
+      opacity: 1;
+    }
   }
 
   .video {
     object-fit: cover;
     opacity: 0;
     animation: showLogo 0.5s 0.3s ease-in forwards;
+
+    @include mobile {
+      width: 300px;
+      height: auto;
+      position: absolute;
+      top: calc(50% - 150px);
+      left: calc(50% - 40px);
+      animation: showLogo 0.5s 0.3s ease-in forwards,
+                 showLogoMobile 0.5s 1.7s ease-in-out forwards;
+    }
+
+    @at-root body[data-browser="edge"] & {
+      position: absolute;
+      left: -6.5%;
+      background-color: white;
+    }
+
+    @at-root body[data-browser="ie"] & {
+      position: absolute;
+      left: -6.5%;
+    }
   }
 
   @keyframes showLogo {
     100% {
       opacity: 1;
+    }
+  }
+
+  @keyframes showLogoMobile {
+    100% {
+      opacity: 1;
+      transform: translateX(calc(50vw - 200px)) translateY(calc(-50vh + 100px));
     }
   }
 
@@ -36,10 +105,19 @@
     position: relative;
     z-index: 1;
     opacity: 0;
+
+    @include mobile {
+      align-items: flex-start;
+      padding-top: 230px;
+    }
   }
 
   &.showAnimation .content {
     animation: showContent 0.55s 0.45s forwards;
+
+    @include mobile {
+      animation: showContent 0.55s 2s forwards;
+    }
   }
 
   @keyframes showContent {
@@ -52,6 +130,12 @@
     width: 425px;
     margin-left: 50%;
     transform: translateX(-5px);
+
+    @include mobile {
+      width: 100%;
+      margin-left: 0;
+      padding: 0 20px;
+    }
   }
 
   &.showAnimation .titleAndDescription {
@@ -70,12 +154,20 @@
     text-transform: lowercase;
     font-size: 65px;
     line-height: 1.2;
+
+    @include mobile {
+      font-size: 48px;
+    }
   }
 
   .description {
     margin-top: 50px;
     font-size: 16px;
     line-height: 1.4;
+
+    @include mobile {
+      margin-top: 25px;
+    }
   }
 
   .scrollDown {
@@ -84,6 +176,10 @@
     position: absolute;
     right: 10px;
     color: grey;
+
+    @include mobile {
+      display: none;
+    }
 
     &::before {
       content: url('#{$img}/wheel.svg');

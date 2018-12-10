@@ -1,0 +1,44 @@
+@mixin mobile {
+	@media all and (max-width: $mobile-max) {
+		@content;
+	}
+}
+
+@mixin mobileLandscape {
+	@media all and (max-width: $mobile-max) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media all and (min-width: $tablet-min) and (max-width: $tablet-max) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media all and (min-width: $desktop) {
+		@content;
+	}
+}
+
+@mixin smallHeightPort {
+	@media all and (orientation: portrait) and (max-height: $small-height) {
+		@content;
+	}
+}
+
+// DPI
+@mixin ldpi {
+  @media (max-resolution: 119dpi),
+  (-webkit-max-device-pixel-ratio: 1) { 
+    @content;
+  }
+}
+
+@mixin hdpi {
+  @media (min-resolution: 120dpi),
+  (-webkit-min-device-pixel-ratio: 2) { 
+    @content;
+  }
+}

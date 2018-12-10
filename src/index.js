@@ -1,29 +1,23 @@
 // Libs
 import initScrollLib from './lib/scripts/scrollTo';
 
+// Utils
+import detectBrowser from './utils/scripts/detectBrowser';
+import focusOnlyWithKeys from './utils/scripts/focusOnlyWithKeys';
+
+// Basic
+import scroll from './basic/scripts/scrollToContent';
+
 // Components
 import initScreen from './components/initScreen/initScreen';
 
+detectBrowser();
+focusOnlyWithKeys();
 initScrollLib();
 initScreen.init();
 
-var scrollOnContent = false;
+var isMobile = (window.innerWidth <= 768);
 
-document.addEventListener('wheel', () => {
-  if(scrollOnContent) return;
-
-  scrollOnContent = true;
-
-  smoothScroll.scrollTo(768, 600, document.body);
-
-  setTimeout(() => {
-    initScreen.hide();
-
-    document.body.scroll({
-      top: 0, 
-      left: 0
-    });
-
-    document.body.classList.add('enableScroll');
-  }, 700);
-});
+if(document.body.dataset.browser != 'edge' && !isMobile) {
+  scroll.init();
+}

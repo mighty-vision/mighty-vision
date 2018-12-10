@@ -5,9 +5,19 @@
   background-size: 100% 73vh;
   color: white;
 
+  @include mobile {
+    height: auto;
+    background: linear-gradient(to right, #424245, #252526);
+  }
+
   .content {
     width: 1040px;
     margin: 0 auto;
+
+    @include mobile {
+      width: auto;
+      padding: 0 20px 100px 20px;
+    }
   }
 
   .logo {
@@ -17,6 +27,10 @@
   .titleAndDescription {
     width: 650px;
     margin: 80px 0 0 0;
+
+    @include mobile {
+      width: auto;
+    }
   }
 
   .title {
@@ -29,6 +43,10 @@
     font-size: 30px;
     line-height: 1.25;
     font-weight: 800;
+
+    @include mobile {
+      font-size: 22px;
+    }
   }
 
   .magnifier {

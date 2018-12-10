@@ -8,6 +8,10 @@
     max-width: 1040px;
     flex: 1;
     margin: 0 auto;
+    
+    @at-root body[data-browser="ie"] & {
+      min-width: 1040px;
+    }
   }
 
   .title {
@@ -41,6 +45,10 @@
     width: 381px;
     display: block;
     border-bottom: 1px solid white;
+
+    &:focus::placeholder {
+      color: lightgrey;
+    }
   }
 
   .name {
@@ -61,6 +69,10 @@
                 #49494b 33.5px
               );
 
+    @at-root body[data-browser="ie"] & {
+      width: 60%;
+    }
+
     &::before {
       content: '';
       width: 100%;
@@ -76,8 +88,12 @@
     height: 100%;
     display: block;
     resize: none;
-    line-height: 32px;
+    line-height: 34px;
     overflow: hidden;
+
+    &:focus::placeholder {
+      color: lightgrey;
+    }
   }
 
   .contactsButton {
@@ -87,5 +103,31 @@
     background-image: linear-gradient(-89deg, #00b4ff 0%, #9c00ff 100%);
     border-radius: 30px;
     font-weight: 800;
+    transition: filter 0.2s;
+
+    &:focus {
+      filter: brightness(1.15) !important;
+
+      &::after {
+        content: '';
+        width: calc(100% - 50px);
+        height: 5px;
+        position: absolute;
+        left: 25px;
+        bottom: -15px;
+        background-image: linear-gradient(-89deg, #00b4ff 0%, #9c00ff 100%);
+        animation: highlights 0.3s infinite alternate;
+      }
+    }
+
+    @keyframes highlights {
+      100% {
+        transform: translateY(2px);
+      }
+    }
+
+    &:hover {
+      filter: brightness(1.15);
+    }
   }
 }

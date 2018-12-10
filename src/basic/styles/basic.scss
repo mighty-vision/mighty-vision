@@ -30,9 +30,18 @@ html {
 body {
   font-family: $fontBase;
   font-weight: 400;
-  overflow-x: hidden;
+  overflow: hidden;
 
   &.enableScroll {
+    overflow-y: auto;
+  }
+
+  @include mobile {
+    overflow-y: auto;
+  }
+
+  &[data-browser="edge"],
+  &[data-browser="ie"] {
     overflow-y: auto;
   }
 }
@@ -65,7 +74,6 @@ button {
 
 .parallax {
   height: 100vh;
-  overflow: hidden;
   perspective: 300px;
 }
 

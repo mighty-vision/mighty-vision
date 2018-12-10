@@ -30,6 +30,15 @@
     position: relative;
     font-size: 20px;
 
+    @at-root body[data-browser="ie"] & {
+      border: 8px solid #00c6ff;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
     &::before {
       content: '';
       width: 100%;
@@ -46,8 +55,8 @@
       width: calc(100% - #{8px * 2});
       height: calc(100% - #{8px * 2});
       position: absolute;
-      left: 8pxs;
-      top: 8pxs;
+      left: 8px;
+      top: 8px;
       background-color: white;
       z-index: -1;
     }

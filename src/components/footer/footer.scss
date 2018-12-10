@@ -12,6 +12,10 @@
     flex: 1;
     margin: 0 auto;
     display: flex;
+
+    @at-root body[data-browser="ie"] & {
+      min-width: 1040px;
+    }
   }
 
   .fn {

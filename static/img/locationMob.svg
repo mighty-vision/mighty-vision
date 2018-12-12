@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 17" width="13" height="17">
+	<defs>
+		<filter id="flt1"> <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.129   0 0 0 0 0.537   0 0 0 0 0.949   0 0 0 1 0" /> </filter>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { filter: url(#flt1);fill: #2189f2 } 
+	</style>
+	<path id="81-interface - branches store location" class="shp0" d="M1 6C1 2.56 4.24 0 7 0C9.76 0 13 2.63 13 6C13 9.17 7 17 7 17C7 17 1 9.29 1 6ZM7 1C4.79 1 2 3.41 2 6C2 8 5.2 12.43 7 15.2C8.8 12.43 12 7.98 12 6C12 3.5 9.21 1 7 1ZM5 6C5 4.89 5.9 4 7 4C8.1 4 9 4.89 9 6C9 7.1 8.1 8 7 8C5.9 8 5 7.1 5 6ZM7 7C7.55 7 8 6.55 8 6C8 5.45 7.55 5 7 5C6.45 5 6 5.45 6 6C6 6.55 6.45 7 7 7Z" />
+</svg>

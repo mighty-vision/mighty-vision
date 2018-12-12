@@ -7,7 +7,6 @@
 
   @include mobile {
     height: auto;
-    background: linear-gradient(to right, #424245, #252526);
   }
 
   .content {
@@ -16,12 +15,48 @@
 
     @include mobile {
       width: auto;
-      padding: 0 20px 100px 20px;
+      padding: 0 20px 115px 20px;
+      position: relative;
+
+      &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: linear-gradient(to right, #424245, #252526);
+        z-index: -1;
+      }
+
+      &::after {
+        content: '';
+        width: 115%;
+        height: 45vw;
+        position: absolute;
+        left: -5%;
+        bottom: -40vw;
+        z-index: -2;
+        background: url(#{$img}/bgSecondScreenMob.svg) no-repeat;
+        background-size: 100% auto;
+      }
     }
   }
 
   .logo {
+    width: 136px;
+    height: 30px;
     margin: 53px 0 0 -78px;
+    display: inline-block;
+    background: url(#{$img}/logo.svg) no-repeat;
+
+    @include mobile {
+      width: 49px;
+      height: 19px;
+      margin: 53px 0 0 0;
+      background: url(#{$img}/logoMob.svg) no-repeat;
+      background-size: 100% auto;
+    }
   }
 
   .titleAndDescription {
@@ -46,6 +81,8 @@
 
     @include mobile {
       font-size: 22px;
+      font-family: $fontBase;
+      font-weight: 400;
     }
   }
 
@@ -53,5 +90,22 @@
     position: absolute;
     top: 50px;
     right: calc((100% - 1040px) / 2 + 80px);
+
+    @include mobile {
+      width: 170px;
+      top: auto;
+      right: auto;
+      left: calc(50% - 60vw);
+      bottom: -310px;
+      will-change: transform, opacity;
+      transition: all 0.05s linear;
+      transform: translateX(calc(200vw * var(--progress)))
+                 translateY(calc(-300px * var(--progress)));;
+      opacity: calc(2.5 - var(--progress) * 4);
+    }
+  }
+
+  .parallaxLayer {
+    z-index: 1;
   }
 }

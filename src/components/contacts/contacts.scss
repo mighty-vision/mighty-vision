@@ -1,13 +1,23 @@
 .contacts {
   width: 100vw;
-  height: 515px;
+  min-height: 515px - 50px;
+  padding-bottom: 50px;
   display: flex;
   background-color: #343437;
+
+  @include mobile {
+    width: 100%;
+    height: auto;
+  }
 
   .contentWrapper {
     max-width: 1040px;
     flex: 1;
     margin: 0 auto;
+
+    @include mobile {
+      padding: 0 20px;
+    }
     
     @at-root body[data-browser="ie"] & {
       min-width: 1040px;
@@ -20,6 +30,10 @@
     font-size: 48px;
     font-weight: 800;
     color: white;
+
+    @include mobile {
+      font-size: 30px;
+    }
   }
 
   .form {
@@ -32,11 +46,20 @@
   .itemsWrapper {
     width: 100%;
     display: flex;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   .nameAndMail {
     width: 380px;
     margin-right: 40px;
+
+    @include mobile {
+      width: auto;
+      margin: 0 0 30px 0;
+    }
   }
 
   .name,
@@ -45,6 +68,15 @@
     width: 381px;
     display: block;
     border-bottom: 1px solid white;
+
+    @include mobile {
+      width: 100%;
+      display: block;
+    }
+
+    &::placeholder {
+      color: grey;
+    }
 
     &:focus::placeholder {
       color: lightgrey;
@@ -62,18 +94,37 @@
     min-height: 100%;
     display: flex;
     position: relative;
-    background: repeating-linear-gradient(
+
+    @include mobile {
+      min-height: auto;
+    }
+    
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 0;
+      background: repeating-linear-gradient(
                 rgba(0,0,0,0),
                 rgba(0,0,0,0) 32.5px,
                 #49494b 32.5px,
                 #49494b 33.5px
-              );
+              );;
+    }
+
+    @include mobile {
+      height: auto;
+      background: none;
+    }
 
     @at-root body[data-browser="ie"] & {
       width: 60%;
     }
 
-    &::before {
+    &::after {
       content: '';
       width: 100%;
       position: absolute;
@@ -84,14 +135,34 @@
   }
 
   .subject {
-    width: 100%;
-    height: 100%;
+    width: calc(1040px - 420px);
+    max-height: 300px;
+    overflow: auto;
     display: block;
-    resize: none;
     line-height: 34px;
-    overflow: hidden;
+    outline: none;
+    position: relative;
+    
+    @include mobile {
+      width: calc(100vw - 40px);
+      height: 300px;
+    }
 
-    &:focus::placeholder {
+    &::before {
+      content: attr(data-placeholder);
+      color: grey;
+    }
+
+    @include mobile {
+      height: auto;
+      overflow: auto;
+    }
+
+    &:not(:empty)::before {
+      display: none;
+    }
+
+    &:focus::before {
       color: lightgrey;
     }
   }
@@ -104,6 +175,10 @@
     border-radius: 30px;
     font-weight: 800;
     transition: filter 0.2s;
+
+    @include mobile {
+      margin: 55px auto 0 auto;
+    }
 
     &:focus {
       filter: brightness(1.15) !important;
@@ -129,5 +204,13 @@
     &:hover {
       filter: brightness(1.15);
     }
+  }
+
+  .pseudoSubject {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
   }
 }

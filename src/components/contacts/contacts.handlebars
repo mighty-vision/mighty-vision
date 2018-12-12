@@ -11,11 +11,16 @@
         </div>
 
         <div class="subjectWrapper">
-          <textarea class="subject" required placeholder="@{content.contacts.subject}" maxlength="190"></textarea>
+          <div class="subject" contentEditable="true" data-placeholder="@{content.contacts.subject}" maxlength="190"></div>
+          <textarea tabindex="-1" class="pseudoSubject" required></textarea>
         </div>
       </div>
 
-      <button class="contactsButton" type="submit">@{content.contacts.contactsButton}</button>
+      <button class="contactsButton" 
+              type="submit"
+              data-success-mesage="@{content.contacts.successMesage}">
+        @{content.contacts.contactsButton}
+      </button>
     </form>
   </div>
 </section>

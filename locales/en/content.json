@@ -21,7 +21,8 @@
     "name" : "Vashe imya",
     "subject" : "Tema",
     "mail" : "E-mail",
-    "contactsButton" : "Ostavit' zayavku"
+    "contactsButton" : "Ostavit' zayavku",
+    "successMesage" : "Otpravleno"
   },
 
   "footer" : {

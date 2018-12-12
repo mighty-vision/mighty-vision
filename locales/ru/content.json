@@ -21,7 +21,8 @@
     "name" : "Ваше имя",
     "subject" : "Тема",
     "mail" : "E-mail",
-    "contactsButton" : "Оставить заявку"
+    "contactsButton" : "Оставить заявку",
+    "successMesage" : "Отправлено"
   },
 
   "footer" : {

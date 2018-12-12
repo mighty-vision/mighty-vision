@@ -25,18 +25,23 @@
 
 html {
   overflow: hidden; // For correct parallax
+
+  @include mobile {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
 }
 
 body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   font-family: $fontBase;
   font-weight: 400;
-  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
 
   &.enableScroll {
-    overflow-y: auto;
-  }
-
-  @include mobile {
     overflow-y: auto;
   }
 
@@ -60,6 +65,10 @@ a {
   text-decoration: none;
 }
 
+input { // Fix for iOS
+  border-radius: 0;
+}
+
 button {
   cursor: pointer;
 }
@@ -72,9 +81,34 @@ button {
   background: #00c6ff;
 }
 
+html:not(.mac) {
+  @include desktop {
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+  
+    ::-webkit-scrollbar-track {
+      background: rgb(250, 250, 250); 
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background: rgb(150, 150, 150); 
+    }
+  
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgb(120, 120, 120);
+    }
+  }
+}
+
 .parallax {
   height: 100vh;
   perspective: 300px;
+
+  @include mobile {
+    perspective: none;
+    height: auto;
+  }
 }
 
 .parallaxGroup {

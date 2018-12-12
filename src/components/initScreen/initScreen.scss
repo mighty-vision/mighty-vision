@@ -1,9 +1,9 @@
 .initScreen {
   width: 100%;
   height: 100vh;
+  position: relative;
 
   @include mobile {
-    height: auto;
     min-height: 100%;
   }
 
@@ -18,6 +18,7 @@
     left: 0;
     top: 0;
     background-color: white;
+    overflow: hidden;
 
     @at-root body[data-browser="ie"] & {
       &::before {
@@ -45,7 +46,10 @@
         background-size: 100% auto;
         z-index: 1;
         opacity: 0;
-        animation: showOverlay 0.5s 2.8s forwards;
+
+        @at-root body.startAnimation & {
+          animation: showOverlay 0.5s 1.75s forwards;
+        }
       }
     }
   }
@@ -59,7 +63,10 @@
   .video {
     object-fit: cover;
     opacity: 0;
-    animation: showLogo 0.5s 0.3s ease-in forwards;
+
+    @at-root body.startAnimation & {
+      animation: showLogo 0.5s 0.3s ease-in forwards;
+    }
 
     @include mobile {
       width: 300px;
@@ -67,8 +74,11 @@
       position: absolute;
       top: calc(50% - 150px);
       left: calc(50% - 40px);
-      animation: showLogo 0.5s 0.3s ease-in forwards,
-                 showLogoMobile 0.5s 1.7s ease-in-out forwards;
+
+      @at-root body.startAnimation & {
+        animation: showLogo 0.5s ease-in forwards,
+                   showLogoMobile 0.5s 0.7s ease-in-out forwards;
+      }
     }
 
     @at-root body[data-browser="edge"] & {
@@ -91,7 +101,6 @@
 
   @keyframes showLogoMobile {
     100% {
-      opacity: 1;
       transform: translateX(calc(50vw - 200px)) translateY(calc(-50vh + 100px));
     }
   }
@@ -112,12 +121,8 @@
     }
   }
 
-  &.showAnimation .content {
-    animation: showContent 0.55s 0.45s forwards;
-
-    @include mobile {
-      animation: showContent 0.55s 2s forwards;
-    }
+  @at-root body.startAnimation .content {
+    animation: showContent 0.55s 1.35s forwards;
   }
 
   @keyframes showContent {
@@ -138,8 +143,10 @@
     }
   }
 
-  &.showAnimation .titleAndDescription {
-    animation: showTitleAndDescription 0.55s 0.45s forwards;
+  .titleAndDescription {
+    @at-root body.startAnimation & {
+      animation: showTitleAndDescription 0.55s 1.3s forwards;
+    }
   }
 
   @keyframes showTitleAndDescription {

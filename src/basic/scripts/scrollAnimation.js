@@ -1,4 +1,3 @@
-import ScrollMagic from 'ScrollMagic';
 import setCSSVar from './../../utils/scripts/setCSSVar';
 
 export default function() {

@@ -94,8 +94,30 @@
   }
 
   .code {
+    width: 325px;
+    height: 253px;
     position: absolute;
     right: calc((100% - 1040px) / 2 + 630px);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    @at-root body.no-webp & {
+      background-image: url('#{$img}/code.png');
+    }
+
+    @at-root body.webp & {
+      background-image: url('#{$img}/code.webp');
+    }
+
+    @include hdpi {
+      @at-root body.no-webp & {
+        background-image: url('#{$img}/code2x.png');
+      }
+
+      @at-root body.webp & {
+        background-image: url('#{$img}/code2x.webp');
+      }
+    }
 
     @include mobile {
       width: 220px;

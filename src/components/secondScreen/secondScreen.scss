@@ -87,9 +87,31 @@
   }
 
   .magnifier {
+    width: 225px;
+    height: 334px;
     position: absolute;
     top: 50px;
     right: calc((100% - 1040px) / 2 + 80px);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    @at-root body.no-webp & {
+      background-image: url('#{$img}/magnifier.png');
+    }
+
+    @at-root body.webp & {
+      background-image: url('#{$img}/magnifier.webp');
+    }
+
+    @include hdpi {
+      @at-root body.no-webp & {
+        background-image: url('#{$img}/magnifier2x.png');
+      }
+
+      @at-root body.webp & {
+        background-image: url('#{$img}/magnifier2x.webp');
+      }
+    }
 
     @include mobile {
       width: 170px;

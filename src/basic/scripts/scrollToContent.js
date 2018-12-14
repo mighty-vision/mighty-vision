@@ -13,7 +13,7 @@ var scroll = {
     initScreenNode.addEventListener('initScreenAnimationEnd', () => { 
       document.addEventListener('wheel', () => {
         scroll.toContent();
-      });
+      }, { passive: true} );
 
       document.addEventListener('keydown', (e) => {
         if(e.keyCode == 40 || e.keyCode == 34 || e.keyCode == 32) {

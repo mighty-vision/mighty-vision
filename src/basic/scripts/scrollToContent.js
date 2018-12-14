@@ -40,16 +40,13 @@ var scroll = {
   
     setTimeout(() => {
       initScreen.hide();
-  
-      document.body.scroll({
-        top: 0, 
-        left: 0
-      });
+
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
   
       document.body.classList.add('enableScroll');
 
       document.body.focus();
-    }, scrollTime + 100);
+    }, scrollTime + 30);
   }
 }
 

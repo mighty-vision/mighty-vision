@@ -5,14 +5,31 @@
     <form class="form">
       <div class="itemsWrapper">
         <div class="nameAndMail">
-          <input class="name" required type="firstname" placeholder="@{content.contacts.name}">
+          <input class="name" 
+                 aria-label="@{content.contacts.name}" 
+                 required
+                 type="firstname" 
+                 placeholder="@{content.contacts.name}">
 
-          <input class="mail" required type="email" placeholder="@{content.contacts.mail}">
+          <input class="mail"
+                 aria-label="@{content.contacts.mail}"
+                 required 
+                 type="email" 
+                 placeholder="@{content.contacts.mail}">
         </div>
 
         <div class="subjectWrapper">
-          <div class="subject" contentEditable="true" data-placeholder="@{content.contacts.subject}" maxlength="190"></div>
-          <textarea tabindex="-1" class="pseudoSubject" required></textarea>
+          <div class="subject" 
+               contentEditable="true" 
+               aria-label="@{content.contacts.subject}"
+               role="textbox"
+               data-placeholder="@{content.contacts.subject}" 
+               maxlength="190"></div>
+          <textarea aria-label="@{content.contacts.subject}" 
+                    tabindex="-1" 
+                    class="pseudoSubject" 
+                    required>
+          </textarea>
         </div>
       </div>
 

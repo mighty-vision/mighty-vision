@@ -4,6 +4,14 @@
   background: url(#{$img}/bgSecondScreen.svg) no-repeat center top;
   background-size: 100% 73vh;
   color: white;
+  transition: all 1s;
+
+  // Sorry for this selector :D
+  @include notMobile {
+    @at-root body:not([data-browser="edge"]):not([data-browser="ie"]):not(.showContent) & {
+      transform: translateY(100vh) translateZ(0);
+    }
+  }
 
   @include mobile {
     height: auto;
@@ -62,6 +70,15 @@
   .titleAndDescription {
     width: 650px;
     margin: 80px 0 0 0;
+    transition: all 1s 0.3s;
+
+    @include notMobile {
+      @at-root body:not([data-browser="edge"]):not([data-browser="ie"]):not(.showContent) & {
+        transition: all 0.7s;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
 
     @include mobile {
       width: auto;
@@ -122,8 +139,8 @@
       will-change: transform, opacity;
       transition: all 0.05s linear;
       transform: translateX(calc(200vw * var(--progress)))
-                 translateY(calc(-300px * var(--progress)));;
-      opacity: calc(2.5 - var(--progress) * 4);
+                 translateY(calc(-250px * var(--progress)));;
+      // opacity: calc(2.5 - var(--progress) * 5);
     }
   }
 

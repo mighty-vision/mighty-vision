@@ -1,5 +1,4 @@
-// Libs
-import initScrollLib from './lib/scripts/scrollTo';
+
 
 // Utils
 import detectBrowser from './utils/scripts/detectBrowser';
@@ -18,7 +17,6 @@ import contacts from './components/contacts/contacts';
 detectWebp();
 detectBrowser();
 focusOnlyWithKeys();
-initScrollLib();
 initScreen.init();
 contacts.init();
 

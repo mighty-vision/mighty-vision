@@ -2,14 +2,32 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  transition: all 1s 0.05s;
+
+  // So nice selector! Wooow!
+  @include notMobile {
+    @at-root body:not([data-browser="edge"]):not([data-browser="ie"]):not(.showContent) & {
+      transition: all 0.7s;
+      transform: translateY(77vh);
+    }
+  }
 
   @include mobile {
-    margin-top: 100px;
+    margin-top: 10px;
   }
 
   .titleAndDescription {
     width: 480px;
     margin: 100px calc((100% - 1040px) / 2) 0 auto;
+    transition: all 1s 0.3s;
+
+    @include notMobile {
+      @at-root body:not([data-browser="edge"]):not([data-browser="ie"]):not(.showContent) & {
+        transition: all 0.3s;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
 
     @include mobile {
       width: auto;
@@ -41,19 +59,18 @@
 
   .methodology {
     width: 1040px;
-    height: 171px;
+    max-height: 171px;
     margin: 175px auto 120px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 76px 0;
+    text-align: center;
     position: relative;
     font-size: 20px;
 
     @include mobile {
       width: auto;
-      height: 200px;
+      max-height: 200px;
       margin: 70px 0 0 0;
-      padding: 0 20px;
+      padding: 76px 0;
       font-size: 16px;
       font-weight: 800;
       font-family: $fontAlt;
@@ -123,13 +140,12 @@
       width: 220px;
       top: auto;
       right: auto;
-      left: calc(50% - 145vw);
-      top: 50px;
+      left: -115vw;
+      top: 70px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
       transform: translateX(calc(170vw * (var(--progress))))
-                 translateY(calc(-180px * var(--progress)));;
-      opacity: calc(var(--progress) * 4.5 - 1);
+                 translateY(calc(-180px * var(--progress)));
     }
   }
 }

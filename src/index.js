@@ -1,5 +1,3 @@
-
-
 // Utils
 import detectBrowser from './utils/scripts/detectBrowser';
 import detectWebp from './utils/scripts/detectWebp';
@@ -13,6 +11,11 @@ import scrollAnimation from './basic/scripts/scrollAnimation';
 import initScreen from './components/initScreen/initScreen';
 import contacts from './components/contacts/contacts';
 
+
+// Fix init transition at Chromium
+setTimeout(() => {
+  document.body.classList.remove('disableTransitions');
+}, 30);
 
 detectWebp();
 detectBrowser();

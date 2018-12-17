@@ -47,6 +47,10 @@ body {
   scroll-behavior: smooth;
   background-color: white;
 
+  &.disableTransitions * {
+    transition: none !important;
+  }
+
   &.enableScroll {
     overflow-y: auto;
   }

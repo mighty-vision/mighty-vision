@@ -47,7 +47,7 @@
         z-index: 1;
       }
     }
-    
+
     @include mobile {
       &::before {
         content: '';
@@ -62,7 +62,7 @@
         opacity: 0;
 
         @at-root body.startAnimation & {
-          animation: showOverlay 0.5s 1.75s forwards;
+          animation: showOverlay 0.5s 1.85s forwards;
         }
       }
     }

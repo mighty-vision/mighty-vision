@@ -171,10 +171,42 @@
     height: 60px;
     margin: 55px 0 0 auto;
     padding: 0 50px 2px 50px;
-    background-image: linear-gradient(-89deg, #00b4ff 0%, #9c00ff 100%);
+    position: relative;
+    // background-image: linear-gradient(-89deg, #00b4ff 0%, #9c00ff 100%);
     border-radius: 30px;
     font-weight: 800;
     transition: filter 0.2s;
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 30px;
+      background-image: linear-gradient(89deg, #00b4ff 0%, #9c00ff 100%);
+      z-index: 0;
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 30px;
+      background-image: linear-gradient(-89deg, #00b4ff 0%, #9c00ff 100%);
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+    }
 
     @include mobile {
       margin: 55px auto 0 auto;
@@ -182,17 +214,6 @@
 
     &:focus {
       filter: brightness(1.15) !important;
-
-      &::after {
-        content: '';
-        width: calc(100% - 50px);
-        height: 5px;
-        position: absolute;
-        left: 25px;
-        bottom: -15px;
-        background-image: linear-gradient(-89deg, #00b4ff 0%, #9c00ff 100%);
-        animation: highlights 0.3s infinite alternate;
-      }
     }
 
     @keyframes highlights {
@@ -201,8 +222,8 @@
       }
     }
 
-    &:hover {
-      filter: brightness(1.15);
+    &:hover::after {
+      opacity: 1;
     }
   }
 

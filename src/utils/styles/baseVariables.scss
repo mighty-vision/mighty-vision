@@ -20,8 +20,6 @@ $fontAlt: 'cera_pro', #{$systemFonts} sans-serif;
 
 
 // Breakpoints
-$mobile-max: 768px;
-$tablet-min: 769px;
-$tablet-max: 1227px;
-$desktop: 1228px;
-$small-height: 470px;
+$mobileMax: 768px;
+$notMobile: 769px;
+$smallHeight: 470px;

@@ -6,7 +6,7 @@ export default function() {
 	var startNodeData = document.querySelector('.secondScreen .content').getBoundingClientRect();
 	var startPos = startNodeData.height;
 
-	var distance = window.innerHeight * 1.3;
+	var distance = window.innerHeight * 1.5;
 
 	new ScrollMagic.Scene({
 			duration: distance,
@@ -16,8 +16,8 @@ export default function() {
 			
 		})
 		.on("progress", function (e) {
-			if(e.progress >= 0.680995) {
-				setCSSVar(document.body, 'progress', 0.680995);
+			if(e.progress >= 1) {
+				setCSSVar(document.body, 'progress', 1);
 				return;
 			}
 

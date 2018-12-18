@@ -17,7 +17,6 @@
   }
 
   @include mobile {
-    margin-top: 70px;
     height: auto;
   }
 
@@ -135,18 +134,7 @@
     }
 
     @include mobile {
-      width: 170px;
-      top: auto;
-      right: auto;
-      left: calc(50% - 130vw);
-      top: -275px;
-      top: -55vh;
-      will-change: transform, opacity;
-      transition: all 0.05s linear;
-      transform: translateX(calc(190vw * var(--progress-one)))
-                 rotateZ(calc(10deg - 30deg * var(--progress-one)))
-                 translateY(calc(250px * var(--progress-one)));
-      // opacity: calc(2.5 - var(--progress) * 5);
+      display: none;
     }
   }
 

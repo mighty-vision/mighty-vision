@@ -7,7 +7,7 @@ export default function() {
 
 	new ScrollMagic.Scene({
 			duration: distance,
-			offset: 0 - 50
+			offset: window.innerHeight * 0.2
 		})
 		.on("progress", function (e) {
 			setCSSVar(document.body, 'progress-one', e.progress);

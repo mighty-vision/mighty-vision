@@ -17,7 +17,7 @@
 }
 
 @mixin smallHeightPort {
-	@media all and (orientation: portrait) and (max-height: $small-height) {
+	@media all and (orientation: portrait) and (max-height: $smallHeight) {
 		@content;
 	}
 }

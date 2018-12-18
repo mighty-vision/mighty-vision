@@ -2,6 +2,11 @@
   width: 100%;
   height: 100vh;
   transition: transform 1s, opacity 0.7s 0.3s;
+  z-index: 1;
+
+  @include smallHeightPort {
+    margin-bottom: 50px;
+  }
 
   @include notMobile {
     @at-root body:not([data-browser="edge"]):not([data-browser="ie"]) & {
@@ -19,6 +24,8 @@
 
   @include mobile {
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &.hide {
@@ -136,6 +143,7 @@
     }
 
     @include mobile {
+      height: auto;
       align-items: flex-start;
       padding-top: 230px;
     }
@@ -215,6 +223,64 @@
       position: absolute;
       bottom: -7px;
       left: -35px;
+    }
+  }
+
+  .magnifierWrapper {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    position: relative;
+
+    @include notMobile {
+      display: none;
+    }
+  }
+
+  .magnifier {
+    width: 225px;
+    height: 334px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+    @at-root body.no-webp & {
+      background-image: url('#{$img}/magnifier.png');
+    }
+
+    @at-root body.webp & {
+      background-image: url('#{$img}/magnifier.webp');
+    }
+
+    @include hdpi {
+      @at-root body.no-webp & {
+        background-image: url('#{$img}/magnifier2x.png');
+      }
+
+      @at-root body.webp & {
+        background-image: url('#{$img}/magnifier2x.webp');
+      }
+    }
+
+    @include mobile {
+      width: 170px * 0.75;
+      height: 260px * 0.75;
+      position: relative;
+      top: -10vh;
+      left: -150px;
+      will-change: transform, opacity;
+      transition: all 0.05s linear;
+      transform: translateX(calc(190vw * var(--progress-one)))
+                 rotateZ(calc(10deg - 30deg * var(--progress-one)))
+                 translateY(calc(105vh * var(--progress-one)));
+    }
+
+    @include smallHeightPort {
+      top: 25%;
+      transform: translateX(calc(190vw * var(--progress-one)))
+                 rotateZ(calc(10deg - 30deg * var(--progress-one)))
+                 translateY(calc(65vh * var(--progress-one)));
     }
   }
 }

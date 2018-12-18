@@ -12,6 +12,34 @@
   }
 
   a {
+    @include notMobile {
+      padding: 10px;
+      position: relative;
+      left: -10px;
+
+      &:last-child {
+        left: 10px;
+      }
+
+      &::after {
+        content: '';
+        width: calc(100% - 20px);
+        border-bottom: 1px solid white;
+        position: absolute;
+        left: 10px;
+        bottom: 6px;
+        transform: translateY(2px);
+        transition: all 0.15s ease-out;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: none;
+    }
+
     &:focus {
       margin-top: -10px;
       padding-bottom: 5px;
@@ -95,6 +123,13 @@
 
   .tel {
     &::before {
+      position: absolute;
+
+      @include notMobile {
+        left: -15px;
+        top: 8px;
+      }
+
       content: url('#{$img}/phone.svg');
 
       @include mobile {
@@ -110,10 +145,16 @@
   }
 
   .adr {
-    margin-left: 65px;
+    margin-left: 50px;
 
     &::before {
       content: url('#{$img}/house.svg');
+      position: absolute;
+
+      @include notMobile {
+        left: -17px;
+        top: 7px;
+      }
     }
 
     @include mobile {

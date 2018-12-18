@@ -1,5 +1,5 @@
 {
-  "description" : "Postroenie udobnyh i vostrebovannyh cifrovyh produktov, osnovannyh na istinnyh zhelaniyah pol'zovatelej",
+  "description" : "Creating easy to use and friendly products based on user's needs",
 
   "initScreen" : {
     "title" : "Mighty Vision",
@@ -9,7 +9,7 @@
 
   "secondScreen" : {
     "title" : "Mission:",
-    "description" : "Creating easy to use and friendly products based on real user needs"
+    "description" : "Creating easy to use and friendly products based on user's needs"
   },
 
   "thirdScreen" : {

@@ -92,7 +92,6 @@
     top: 2px;
     width: 100%;
     min-height: 100%;
-    display: flex;
     position: relative;
 
     @include mobile {
@@ -109,9 +108,9 @@
       z-index: 0;
       background: repeating-linear-gradient(
                 rgba(0,0,0,0),
-                rgba(0,0,0,0) 32.5px,
-                #49494b 32.5px,
-                #49494b 33.5px
+                rgba(0,0,0,0) 33.5px,
+                #49494b 33.5px,
+                #49494b 34.5px
               );;
     }
 
@@ -130,18 +129,19 @@
       position: absolute;
       left: 0;
       top: 33.5px;
-      border-top: 1px solid white;
+      // border-top: 1px solid white;
     }
   }
 
   .subject {
     width: calc(1040px - 420px);
-    max-height: 300px;
+    max-height: 290px;
     overflow: auto;
     display: block;
     line-height: 34px;
     outline: none;
     position: relative;
+    border-bottom: 1px solid white;
     
     @include mobile {
       width: calc(100vw - 40px);

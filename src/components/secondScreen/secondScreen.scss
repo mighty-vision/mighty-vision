@@ -5,8 +5,9 @@
   transition: all 1s;
 
   @include notMobile {
-    background: url(#{$img}/bgSecondScreen.svg) no-repeat center top;
-    background-size: 100% 73vh;
+    background: url(#{$img}/bgSecondScreenRight.svg) no-repeat right top, 
+                url(#{$img}/bgSecondScreen.svg) no-repeat center top;
+    background-size: auto 510px, 100% 73vh;
   }
 
   // Sorry for this selector :D
@@ -110,8 +111,8 @@
     width: 225px;
     height: 334px;
     position: absolute;
-    top: 50px;
-    right: calc((100% - 1040px) / 2 + 80px);
+    top: 150px;
+    right: calc((100% - 1040px) / 2 + 100px);
     background-repeat: no-repeat;
     background-size: 100% auto;
 

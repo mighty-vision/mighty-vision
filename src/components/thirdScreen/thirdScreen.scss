@@ -12,10 +12,6 @@
     }
   }
 
-  @include mobile {
-    margin-top: 10px;
-  }
-
   .titleAndDescription {
     width: 480px;
     margin: 100px calc((100% - 1040px) / 2) 0 auto;
@@ -31,7 +27,7 @@
 
     @include mobile {
       width: auto;
-      margin: 200px 0 0 0;
+      margin: 170px 0 0 0;
       padding: 0 20px;
     }
   }
@@ -141,11 +137,11 @@
       top: auto;
       right: auto;
       left: -115vw;
-      top: 70px;
+      top: 30px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
       transform: translateX(calc(170vw * (var(--progress))))
-                 translateY(calc(-180px * var(--progress)));
+                 translateY(calc(-220px * var(--progress)));
     }
   }
 }

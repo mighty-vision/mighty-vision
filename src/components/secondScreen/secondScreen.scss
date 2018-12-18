@@ -1,10 +1,13 @@
 .secondScreen {
   width: 100vw;
   height: 73vh;
-  background: url(#{$img}/bgSecondScreen.svg) no-repeat center top;
-  background-size: 100% 73vh;
   color: white;
   transition: all 1s;
+
+  @include notMobile {
+    background: url(#{$img}/bgSecondScreen.svg) no-repeat center top;
+    background-size: 100% 73vh;
+  }
 
   // Sorry for this selector :D
   @include notMobile {
@@ -14,6 +17,7 @@
   }
 
   @include mobile {
+    margin-top: 70px;
     height: auto;
   }
 
@@ -23,7 +27,7 @@
 
     @include mobile {
       width: auto;
-      padding: 0 20px 115px 20px;
+      padding: 30px 20px 115px 20px;
       position: relative;
 
       &::before {
@@ -134,12 +138,13 @@
       width: 170px;
       top: auto;
       right: auto;
-      left: calc(50% - 60vw);
-      bottom: -310px;
+      left: calc(50% - 130vw);
+      top: -275px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateX(calc(200vw * var(--progress)))
-                 translateY(calc(-250px * var(--progress)));;
+      transform: translateX(calc(190vw * var(--progress-one)))
+                 rotateZ(calc(10deg - 30deg * var(--progress-one)))
+                 translateY(calc(250px * var(--progress-one)));
       // opacity: calc(2.5 - var(--progress) * 5);
     }
   }

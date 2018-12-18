@@ -21,7 +21,7 @@
   "contacts" : {
     "title" : "Request Quote",
     "name" : "Name",
-    "subject" : "Theme",
+    "subject" : "Message",
     "mail" : "E-mail",
     "contactsButton" : "Send",
     "successMesage" : "Thank you!"

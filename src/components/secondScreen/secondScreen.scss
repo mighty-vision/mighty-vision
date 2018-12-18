@@ -140,6 +140,7 @@
       right: auto;
       left: calc(50% - 130vw);
       top: -275px;
+      top: -55vh;
       will-change: transform, opacity;
       transition: all 0.05s linear;
       transform: translateX(calc(190vw * var(--progress-one)))

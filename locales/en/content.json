@@ -3,28 +3,28 @@
 
   "initScreen" : {
     "title" : "Mighty Vision",
-    "description" : "Kompaniya polnogo cikla razrabotki produktov s fokusom na pol'zovatel'skom vzaimodejstvii",
+    "description" : "A full-cycle product development company with focus on User Experience",
     "scroll" : "scroll down"
   },
 
   "secondScreen" : {
-    "title" : "Missiya kompanii:",
-    "description" : "Razrabatyvaem udobnye i vostrebovannye produkty, rukovodstvuyas' istinnymi zhelaniyami pol'zovatelej"
+    "title" : "Mission:",
+    "description" : "Creating easy to use and friendly products based on real user needs"
   },
 
   "thirdScreen" : {
-    "title" : "Oblast' razrabotki programmnogo obespecheniya:",
-    "description" : "Analiz, proektirovanie i <br/> razrabotka veb-prilozhenij",
-    "methodology" : "Rabota v kompanii vedyotsya po metodologii Skram"
+    "title" : "Area of expertise in scope of product development:",
+    "description" : "Analysis, prototyping and <br/> development of web applications",
+    "methodology" : "We are Scrum cretified"
   },
 
   "contacts" : {
-    "title" : "Obratnaya svyaz'",
-    "name" : "Vashe imya",
-    "subject" : "Tema",
+    "title" : "Request Quote",
+    "name" : "Name",
+    "subject" : "Theme",
     "mail" : "E-mail",
-    "contactsButton" : "Ostavit' zayavku",
-    "successMesage" : "Otpravleno"
+    "contactsButton" : "Send",
+    "successMesage" : "Thank you!"
   },
 
   "footer" : {

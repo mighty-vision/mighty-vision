@@ -92,16 +92,17 @@
     }
 
     @include mobile {
-      width: 600px;
-      height: 340px;
+      width: 100%;
+      height: auto;
+      // height: 340px;
       position: absolute;
-      left: calc(50% - 270px);
-      top: calc(50% - 170px);
+      // left: calc(50% - 270px);
+      top: calc(50% - 2.5vh - 85px);
       // transform: translateX(-125px);
 
       @at-root body.startAnimation & {
         animation: showLogo 0.5s ease-in forwards,
-                   showLogoMobile 0.385s 0.7s ease-in forwards;
+                   showLogoMobile 0.35s 0.7s ease-in forwards;
       }
     }
 
@@ -125,7 +126,7 @@
 
   @keyframes showLogoMobile {
     100% {
-      transform: translateX(calc(-50vw + 270px)) translateY(calc(-50vh + 190px));
+      transform: translateY(calc(-50vh + 190px));
     }
   }
 
@@ -156,7 +157,7 @@
   }
 
   @at-root body.startAnimation & .content {
-    animation: showContent 0.55s 1.35s forwards;
+    animation: showContent 0.65s 1s forwards;
   }
 
   @keyframes showContent {
@@ -178,8 +179,10 @@
   }
 
   .titleAndDescription {
-    @at-root body.startAnimation & {
-      animation: showTitleAndDescription 0.55s 1.3s forwards;
+    @include notMobile {
+      @at-root body.startAnimation & {
+        animation: showTitleAndDescription 0.55s 1.3s forwards;
+      } 
     }
   }
 

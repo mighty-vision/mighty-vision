@@ -6,7 +6,7 @@
 
   @include notMobile {
     background: url(#{$img}/bgSecondScreenRight.svg) no-repeat right top, 
-                url(#{$img}/bgSecondScreen.svg) no-repeat center top;
+                url(#{$img}/bgSecondScreen.jpg) no-repeat center top;
     background-size: auto 510px, 100% 83vh;
   }
 

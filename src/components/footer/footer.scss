@@ -12,6 +12,12 @@
   }
 
   a {
+    transition: color 0.15s ease-out;
+
+    &:hover {
+      color: #248bff;
+    }
+
     @include notMobile {
       padding: 10px;
       position: relative;
@@ -20,24 +26,6 @@
       &:last-child {
         left: 10px;
       }
-
-      &::after {
-        content: '';
-        width: calc(100% - 20px);
-        border-bottom: 1px solid white;
-        position: absolute;
-        left: 10px;
-        bottom: 6px;
-        transform: translateY(2px);
-        transition: all 0.15s ease-out;
-        opacity: 0;
-        pointer-events: none;
-      }
-    }
-
-    &:hover::after {
-      opacity: 1;
-      transform: none;
     }
 
     &:focus {

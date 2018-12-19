@@ -14,7 +14,7 @@
 
   .titleAndDescription {
     width: 480px;
-    margin: 100px calc((100% - 1040px) / 2) 0 auto;
+    margin: 50px calc((100% - 1040px) / 2) 0 auto;
     transition: all 1s 0.3s;
 
     @include notMobile {
@@ -27,7 +27,7 @@
 
     @include mobile {
       width: auto;
-      margin: 170px 0 0 0;
+      margin: 230px 0 140px 0;
       padding: 0 20px;
     }
   }
@@ -65,7 +65,7 @@
     @include mobile {
       width: auto;
       max-height: 200px;
-      margin: 70px 0 0 0;
+      margin: 0;
       padding: 76px 20px;
       font-size: 16px;
       font-weight: 800;
@@ -107,9 +107,10 @@
   }
 
   .code {
-    width: 325px;
-    height: 253px;
+    width: 325px * 1.07;
+    height: 253px * 1.07;
     position: absolute;
+    top: -70px;
     right: calc((100% - 1040px) / 2 + 630px);
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -136,11 +137,11 @@
       width: 220px;
       top: auto;
       right: auto;
-      left: -115vw;
+      left: -220px;
       top: 30px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateX(calc(170vw * (var(--progress))))
+      transform: translateX(calc(200vw * (var(--progress))))
                  translateY(calc(-220px * var(--progress)));
     }
   }

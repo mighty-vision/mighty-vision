@@ -5,7 +5,8 @@
   z-index: 1;
 
   @include smallHeightPort {
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+    height: 107vh;
   }
 
   @include notMobile {
@@ -25,7 +26,6 @@
   @include mobile {
     min-height: 100%;
     display: flex;
-    flex-direction: column;
   }
 
   &.hide {
@@ -35,6 +35,7 @@
   .initAnimation {
     width: 100vw;
     height: 100vh;
+    display: flex;
     position: absolute;
     left: 0;
     top: 0;
@@ -57,6 +58,7 @@
 
     @include mobile {
       &::before {
+        display: none;
         content: '';
         width: 133px;
         height: 150px;
@@ -90,15 +92,16 @@
     }
 
     @include mobile {
-      width: 300px;
-      height: auto;
+      width: 600px;
+      height: 340px;
       position: absolute;
-      top: calc(50% - 150px);
-      left: calc(50% - 40px);
+      left: calc(50% - 270px);
+      top: calc(50% - 170px);
+      // transform: translateX(-125px);
 
       @at-root body.startAnimation & {
         animation: showLogo 0.5s ease-in forwards,
-                   showLogoMobile 0.5s 0.7s ease-in-out forwards;
+                   showLogoMobile 0.385s 0.7s ease-in forwards;
       }
     }
 
@@ -122,7 +125,7 @@
 
   @keyframes showLogoMobile {
     100% {
-      transform: translateX(calc(50vw - 200px)) translateY(calc(-50vh + 100px));
+      transform: translateX(calc(-50vw + 270px)) translateY(calc(-50vh + 190px));
     }
   }
 
@@ -143,9 +146,12 @@
     }
 
     @include mobile {
-      height: auto;
-      align-items: flex-start;
-      padding-top: 230px;
+      // height: auto;
+      margin-top: auto;
+      top: -60px;
+      height: calc(100vh - 340px);
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -231,7 +237,9 @@
     display: flex;
     flex: 1;
     align-items: center;
-    position: relative;
+    position: absolute;
+    bottom: 3vh;
+    height: 0;
 
     @include notMobile {
       display: none;
@@ -273,11 +281,11 @@
       transition: all 0.05s linear;
       transform: translateX(calc(190vw * var(--progress-one)))
                  rotateZ(calc(10deg - 30deg * var(--progress-one)))
-                 translateY(calc(105vh * var(--progress-one)));
+                 translateY(calc(73vh * var(--progress-one)));
     }
 
     @include smallHeightPort {
-      top: 25%;
+      top: 5vh;
       transform: translateX(calc(190vw * var(--progress-one)))
                  rotateZ(calc(10deg - 30deg * var(--progress-one)))
                  translateY(calc(65vh * var(--progress-one)));

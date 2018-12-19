@@ -3,10 +3,10 @@ import setCSSVar from './../../utils/scripts/setCSSVar';
 export default function() {
 	var controller = new ScrollMagic.Controller();
 	
-	var distance = window.innerHeight * 2;
+	var distance0 = window.innerHeight * 1.4;
 
 	new ScrollMagic.Scene({
-			duration: distance,
+			duration: distance0,
 			offset: window.innerHeight * 0.2
 		})
 		.on("progress", function (e) {
@@ -15,9 +15,9 @@ export default function() {
 		.addTo(controller);
 
 	var start2NodeData = document.querySelector('.secondScreen .content').getBoundingClientRect();
-	var startPos2 = start2NodeData.height;
+	var startPos2 = start2NodeData.height * 1.5;
 
-	var distance = window.innerHeight * 1.5;
+	var distance = window.innerHeight * 1.2;
 
 	new ScrollMagic.Scene({
 			duration: distance,

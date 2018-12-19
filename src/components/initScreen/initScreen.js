@@ -32,7 +32,7 @@ var initScreen = {
     var mobilePreffix = '';
 
     if(mobile) {
-      mobilePreffix = '-mobile'
+      mobilePreffix = '-mob'
     }
 
     var videoSrc = videoNode.dataset.src;

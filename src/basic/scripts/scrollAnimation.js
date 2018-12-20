@@ -1,73 +1,84 @@
 import setCSSVar from './../../utils/scripts/setCSSVar';
 
 var bodyHeight = window.innerHeight;
+var initScreenTitleNode = document.querySelector('.initScreen .title');
+var secondScreenTitleNode = document.querySelector('.secondScreen .title');
+var thirdScreenTitleNode = document.querySelector('.thirdScreen .title');
+var secondScreenNode = document.querySelector('.secondScreen');
 
 export default function() {
 	var controller = new ScrollMagic.Controller();
-	
-	var distance0 = bodyHeight * 1.4;
+
+	var start1 = initScreenTitleNode.getBoundingClientRect().top;
+	var baseDistance = 200;
 
 	new ScrollMagic.Scene({
-			duration: distance0,
-			offset: 0
-		})
-		.on("progress", function (e) {
-			setCSSVar(document.body, 'progress-one', e.progress);
-		})
-		.addTo(controller);
-
-	new ScrollMagic.Scene({
-		duration: 150,
-		offset: bodyHeight * 0.6
+		duration: baseDistance,
+		offset: start1
 	})
 	.on("progress", function (e) {
-		setCSSVar(document.body, 'progress-two', e.progress);
+		setCSSVar(document.body, 'progress-1', e.progress);
 	})
 	.addTo(controller);
 
 
-	var start2NodeData = document.querySelector('.secondScreen .content').getBoundingClientRect();
-	var startPos2 = start2NodeData.height * 1.5;
-
-	var distance = bodyHeight * 1.2;
+	var start2 = secondScreenNode.getBoundingClientRect().top - bodyHeight;
 
 	new ScrollMagic.Scene({
-			duration: distance,
-			offset: startPos2 - 50
-		})
-		.on("progress", function (e) {
-			if(e.progress >= 1) {
-				setCSSVar(document.body, 'progress', 1);
-				return;
-			}
-
-			setCSSVar(document.body, 'progress', e.progress);
-		})
-		.addTo(controller);
-
-
-	var startPos3 = document.querySelector('.thirdScreen .title').getBoundingClientRect().top - bodyHeight;
-
-	new ScrollMagic.Scene({
-		duration: 150,
-		offset: startPos3
+		duration: bodyHeight,
+		offset: start2
 	})
 	.on("progress", function (e) {
-		setCSSVar(document.body, 'progress-three', e.progress);
+		setCSSVar(document.body, 'progress-2', e.progress);
 	})
 	.addTo(controller);
 
 
-	var startPos4 = document.querySelector('.thirdScreen .methodology').getBoundingClientRect().top - bodyHeight + 200;
+	var start3 = secondScreenTitleNode.getBoundingClientRect().top - bodyHeight;
 
 	new ScrollMagic.Scene({
-		duration: 150,
-		offset: startPos4
+		duration: baseDistance,
+		offset: start3
 	})
 	.on("progress", function (e) {
-		setCSSVar(document.body, 'progress-four', e.progress);
+		setCSSVar(document.body, 'progress-3', e.progress);
+	})
+	.addTo(controller);
 
-		console.log('hui 4')
+
+	var start4 = secondScreenTitleNode.getBoundingClientRect().top - 120;
+
+	new ScrollMagic.Scene({
+		duration: baseDistance,
+		offset: start4
+	})
+	.on("progress", function (e) {
+		setCSSVar(document.body, 'progress-4', e.progress);
+	})
+	.addTo(controller);
+
+
+	var start5 = secondScreenNode.getBoundingClientRect().bottom - bodyHeight;
+
+	new ScrollMagic.Scene({
+		duration: bodyHeight,
+		offset: start5
+	})
+	.on("progress", function (e) {
+		setCSSVar(document.body, 'progress-5', e.progress);
+	})
+	.addTo(controller);
+
+
+	var start6 = thirdScreenTitleNode.getBoundingClientRect().top - bodyHeight;
+
+	new ScrollMagic.Scene({
+		duration: baseDistance,
+		offset: start6
+	})
+	.on("progress", function (e) {
+		setCSSVar(document.body, 'progress-6', e.progress);
+		console.log('wrk')
 	})
 	.addTo(controller);
 }

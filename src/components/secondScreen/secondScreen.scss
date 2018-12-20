@@ -97,13 +97,18 @@
       top: -120px;
       top: -30px;
       transition: 0.05s transform;
-      transform: translateY(calc(-35px * var(--progress-two)));
-      opacity: var(--progress-two);
+      transform: translateY(calc(-35px * var(--progress-3)));
+      opacity: var(--progress-3);
     }
   }
 
   .title {
     font-size: 18px;
+
+    @include mobile {
+      transform: translateY(calc(-35px * var(--progress-4)));
+      opacity: calc(1 - var(--progress-4));
+    }
   }
 
   .description {
@@ -117,8 +122,8 @@
       font-size: 22px;
       font-family: $fontBase;
       font-weight: 400;
-      transform: translateY(calc(-35px * var(--progress-three)));
-      opacity: calc(1 - var(--progress-three));
+      transform: translateY(calc(-35px * var(--progress-4)));
+      opacity: calc(1 - var(--progress-4));
     }
   }
 

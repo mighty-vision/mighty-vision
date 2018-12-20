@@ -21,7 +21,6 @@
 
   @include mobile {
     min-height: 100%;
-    margin-bottom: 10vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -155,8 +154,8 @@
       width: 100%;
       margin-left: 0;
       padding: 0 20px;
-      transform: translateY(calc(-40px * var(--progress-two)));
-      opacity: calc(1 - var(--progress-two));
+      transform: translateY(calc(-40px * var(--progress-1)));
+      opacity: calc(1 - var(--progress-1));
     }
   }
 
@@ -249,11 +248,11 @@
     @include mobile {
       width: 127px;
       height: 200px;
-      bottom: -55vh;
+      bottom: -40vh;
       right: 40px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateY(calc(-25vh * var(--progress-one)));
+      transform: translateY(calc(-35vh * var(--progress-2)));
     }
   }
 }

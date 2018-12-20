@@ -32,8 +32,8 @@
       position: relative;
       top: 50px;
       transition: transform 0.05s;
-      transform: translateY(calc(-35px * var(--progress-three)));
-      opacity: calc(1 - var(--progress-four));
+      transform: translateY(calc(-35px * var(--progress-6)));
+      opacity: var(--progress-6);
     }
   }
 
@@ -55,8 +55,8 @@
 
     @include mobile {
       font-size: 22px;
-      transform: translateY(calc(-15px * var(--progress-four)));
-      opacity: calc(1 - var(--progress-four));
+      // transform: translateY(calc(-35px * var(--progress-6)));
+      // opacity: calc(1 - var(--progress-6));
     }
   }
 
@@ -141,8 +141,8 @@
       top: 30px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateY(calc(-170px * var(--progress)));
-      filter: drop-shadow(-7px calc(10px + 13px * var(--progress)) 4.5px rgba(0, 0, 0, 0.08));
+      transform: translateY(calc(-35vh * var(--progress-5)));
+      filter: drop-shadow(-7px calc(10px + 13px * var(--progress-5)) 4.5px rgba(0, 0, 0, 0.08));
     }
   }
 }

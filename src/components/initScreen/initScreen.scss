@@ -1,6 +1,7 @@
 .initScreen {
   width: 100%;
   height: 100vh;
+  will-change: transform;
   transition: transform 1s, opacity 0.7s 0.3s;
   z-index: 1;
 
@@ -120,6 +121,7 @@
     z-index: 1;
     opacity: 0;
     transition: all 0.7s 0.3s;
+    will-change: transform;
 
     @at-root body.showContent & {
       transition: all 1s;
@@ -154,7 +156,6 @@
       margin-left: 0;
       padding: 0 20px;
       transform: translateY(calc(-40px * var(--progress-two)));
-      // opacity: calc(2 - var(--progress-one) * 3.3);
       opacity: calc(1 - var(--progress-two));
     }
   }
@@ -216,27 +217,16 @@
     }
   }
 
-  .magnifierWrapper {
-    width: 100%;
-    display: flex;
-    flex: 1;
-    align-items: center;
-    position: absolute;
-    bottom: 3vh;
-    right: 0;
-    height: 0;
-
-    @include notMobile {
-      display: none;
-    }
-  }
-
   .magnifier {
     width: 225px;
     height: 334px;
     position: absolute;
     background-repeat: no-repeat;
     background-size: 100% auto;
+
+    @include notMobile {
+      display: none;
+    }
 
     @at-root body.no-webp & {
       background-image: url('#{$img}/magnifier.png');

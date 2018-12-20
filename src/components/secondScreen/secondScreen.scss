@@ -7,7 +7,7 @@
   @include notMobile {
     background: url(#{$img}/bgSecondScreenRight.svg) no-repeat right top, 
                 url(#{$img}/bgSecondScreen.jpg) no-repeat center top;
-    background-size: auto 510px, 100% 83vh;
+    background-size: auto 510px, 100% 93vh;
   }
 
   // Sorry for this selector :D
@@ -31,7 +31,7 @@
     @include mobile {
       width: auto;
       height: auto;
-      padding: 30px 20px 45px 20px;
+      padding: 30px 20px 25px 20px;
       position: relative;
 
       &::before {
@@ -79,7 +79,7 @@
     width: 650px;
     margin: auto 0;
     position: relative;
-    top: -70px;
+    top: -60px;
     transition: all 1s 0.3s;
 
     @include notMobile {
@@ -93,6 +93,12 @@
     @include mobile {
       width: auto;
       margin-top: 150px;
+      position: relative;
+      top: -120px;
+      top: -30px;
+      transition: 0.05s transform;
+      transform: translateY(calc(-35px * var(--progress-two)));
+      opacity: var(--progress-two);
     }
   }
 
@@ -111,29 +117,25 @@
       font-size: 22px;
       font-family: $fontBase;
       font-weight: 400;
+      transform: translateY(calc(-35px * var(--progress-three)));
+      opacity: calc(1 - var(--progress-three));
     }
   }
 
   .magnifier {
-    width: 225px * 1.07;
-    height: 334px * 1.07;
+    width: 225px * 0.7;
+    height: 354px * 0.7;
     position: absolute;
-    top: 150px;
-    right: calc((100% - 1040px) / 2 + 70px);
+    top: 230px;
+    right: calc((100% - 1040px) / 2 + 150px);
     background-repeat: no-repeat;
     background-size: 100% auto;
-
-    @at-root body.no-webp & {
-      background-image: url('#{$img}/magnifier.png');
-    }
-
-    @at-root body.webp & {
-      background-image: url('#{$img}/magnifier.webp');
-    }
+    background-image: url('#{$img}/magnifier.png'); // Webp for this image make no sense
+    filter: drop-shadow(-7px 20px 4.5px rgba(0, 0, 0, 0.08));
 
     @include hdpi {
       @at-root body.no-webp & {
-        background-image: url('#{$img}/magnifier2x.png');
+        background-image: url('#{$img}/magnifier.png');
       }
 
       @at-root body.webp & {

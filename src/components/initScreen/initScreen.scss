@@ -4,11 +4,6 @@
   transition: transform 1s, opacity 0.7s 0.3s;
   z-index: 1;
 
-  @include smallHeightPort {
-    margin-bottom: 80px;
-    height: 107vh;
-  }
-
   @include notMobile {
     @at-root body:not([data-browser="edge"]):not([data-browser="ie"]) & {
       position: absolute;
@@ -25,7 +20,10 @@
 
   @include mobile {
     min-height: 100%;
+    margin-bottom: 10vh;
     display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   &.hide {
@@ -42,6 +40,12 @@
     background-color: white;
     overflow: hidden;
 
+    @include mobile {
+      height: auto;
+      position: static;
+      align-items: center;
+    }
+
     @at-root body[data-browser="ie"] & {
       &::before {
         content: '';
@@ -53,26 +57,6 @@
         display: block;
         background-color: white;
         z-index: 1;
-      }
-    }
-
-    @include mobile {
-      &::before {
-        display: none;
-        content: '';
-        width: 133px;
-        height: 150px;
-        position: absolute;
-        left: calc(100vw - 104px);
-        top: -5px;
-        background: url(#{$img}/logoOverlayMobile.svg) no-repeat;
-        background-size: 100% auto;
-        z-index: 1;
-        opacity: 0;
-
-        @at-root body.startAnimation & {
-          animation: showOverlay 0.5s 1.85s forwards;
-        }
       }
     }
   }
@@ -92,17 +76,13 @@
     }
 
     @include mobile {
+      object-fit: contain;
       width: 100%;
       height: auto;
-      // height: 340px;
-      position: absolute;
-      // left: calc(50% - 270px);
-      top: calc(50% - 2.5vh - 85px);
-      // transform: translateX(-125px);
 
       @at-root body.startAnimation & {
-        animation: showLogo 0.5s ease-in forwards,
-                   showLogoMobile 0.35s 0.7s ease-in forwards;
+        // animation: showLogo 0.5s ease-in forwards,
+        //            showLogoMobile 0.35s 0.7s ease-in forwards;
       }
     }
 
@@ -147,17 +127,15 @@
     }
 
     @include mobile {
-      // height: auto;
-      margin-top: auto;
-      top: -60px;
-      height: calc(100vh - 340px);
+      margin-top: 8vh;
+      height: auto;
       justify-content: center;
       align-items: center;
     }
   }
 
   @at-root body.startAnimation & .content {
-    animation: showContent 0.65s 1s forwards;
+    animation: showContent 0.55s 1.25s forwards;
   }
 
   @keyframes showContent {
@@ -175,13 +153,16 @@
       width: 100%;
       margin-left: 0;
       padding: 0 20px;
+      transform: translateY(calc(-40px * var(--progress-two)));
+      // opacity: calc(2 - var(--progress-one) * 3.3);
+      opacity: calc(1 - var(--progress-two));
     }
   }
 
   .titleAndDescription {
     @include notMobile {
       @at-root body.startAnimation & {
-        animation: showTitleAndDescription 0.55s 1.3s forwards;
+        animation: showTitleAndDescription 0.55s 1.23s forwards;
       } 
     }
   }
@@ -242,6 +223,7 @@
     align-items: center;
     position: absolute;
     bottom: 3vh;
+    right: 0;
     height: 0;
 
     @include notMobile {
@@ -275,23 +257,13 @@
     }
 
     @include mobile {
-      width: 170px * 0.75;
-      height: 260px * 0.75;
-      position: relative;
-      top: -10vh;
-      left: -150px;
+      width: 127px;
+      height: 200px;
+      bottom: -55vh;
+      right: 40px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateX(calc(190vw * var(--progress-one)))
-                 rotateZ(calc(10deg - 30deg * var(--progress-one)))
-                 translateY(calc(73vh * var(--progress-one)));
-    }
-
-    @include smallHeightPort {
-      top: 5vh;
-      transform: translateX(calc(190vw * var(--progress-one)))
-                 rotateZ(calc(10deg - 30deg * var(--progress-one)))
-                 translateY(calc(65vh * var(--progress-one)));
+      transform: translateY(calc(-25vh * var(--progress-one)));
     }
   }
 }

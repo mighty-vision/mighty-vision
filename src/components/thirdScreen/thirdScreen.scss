@@ -27,8 +27,13 @@
 
     @include mobile {
       width: auto;
-      margin: 230px 0 140px 0;
+      margin: 170px 0 100px 0;
       padding: 0 20px;
+      position: relative;
+      top: 50px;
+      transition: transform 0.05s;
+      transform: translateY(calc(-35px * var(--progress-three)));
+      opacity: calc(1 - var(--progress-four));
     }
   }
 
@@ -50,6 +55,8 @@
 
     @include mobile {
       font-size: 22px;
+      transform: translateY(calc(-15px * var(--progress-four)));
+      opacity: calc(1 - var(--progress-four));
     }
   }
 
@@ -107,21 +114,15 @@
   }
 
   .code {
-    width: 325px * 1.07;
-    height: 253px * 1.07;
+    width: 325px * 0.97;
+    height: 253px * 0.97;
     position: absolute;
     top: -70px;
     right: calc((100% - 1040px) / 2 + 630px);
     background-repeat: no-repeat;
     background-size: 100% auto;
-
-    @at-root body.no-webp & {
-      background-image: url('#{$img}/code.png');
-    }
-
-    @at-root body.webp & {
-      background-image: url('#{$img}/code.webp');
-    }
+    background-image: url('#{$img}/code.png'); // Webp for this image make no sense
+    filter: drop-shadow(-7px 20px 4.5px rgba(0, 0, 0, 0.08));
 
     @include hdpi {
       @at-root body.no-webp & {
@@ -136,13 +137,12 @@
     @include mobile {
       width: 220px;
       top: auto;
-      right: auto;
-      left: -220px;
+      right: 10px;
       top: 30px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateX(calc(200vw * (var(--progress))))
-                 translateY(calc(-220px * var(--progress)));
+      transform: translateY(calc(-170px * var(--progress)));
+      filter: drop-shadow(-7px calc(10px + 13px * var(--progress)) 4.5px rgba(0, 0, 0, 0.08));
     }
   }
 }

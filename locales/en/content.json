@@ -1,5 +1,5 @@
 {
-  "description" : "Creating easy to use and friendly products based on user's needs",
+  "description" : "Create meaningful experiences to people and provide value to businesses",
 
   "initScreen" : {
     "title" : "Mighty Vision",
@@ -9,7 +9,7 @@
 
   "secondScreen" : {
     "title" : "Our mission:",
-    "description" : "Create easy to use and friendly products based on user's needs"
+    "description" : "Create meaningful experiences to people and provide value to businesses"
   },
 
   "thirdScreen" : {

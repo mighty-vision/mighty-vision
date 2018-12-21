@@ -121,6 +121,7 @@
     opacity: 0;
     transition: all 0.7s 0.3s;
     will-change: transform;
+    transform: translateY(5px);
 
     @at-root body.showContent & {
       transition: all 1s;
@@ -142,6 +143,7 @@
   @keyframes showContent {
     100% {
       opacity: 1;
+      transform: none;
     }
   }
 
@@ -154,7 +156,7 @@
       width: 100%;
       margin-left: 0;
       padding: 0 20px;
-      transform: translateY(calc(-40px * var(--progress-1)));
+      transform: translateY(calc(#{-$hideTranslateY} * var(--progress-1)));
       opacity: calc(1 - var(--progress-1));
     }
   }
@@ -222,6 +224,7 @@
     position: absolute;
     background-repeat: no-repeat;
     background-size: 100% auto;
+    z-index: 1;
 
     @include notMobile {
       display: none;

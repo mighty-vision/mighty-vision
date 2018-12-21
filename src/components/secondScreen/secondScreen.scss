@@ -3,11 +3,19 @@
   height: 100vh;
   color: white;
   transition: all 1s;
+  position: relative;
 
   @include notMobile {
-    background: url(#{$img}/bgSecondScreenRight.svg) no-repeat right top, 
+    background: url(#{$img}/bgSecondScreenRight.svg) repeat-y right top, 
                 url(#{$img}/bgSecondScreen.jpg) no-repeat center top;
-    background-size: auto 510px, 100% 93vh;
+    background-size: 1050px auto, 100% 93vh;
+    background-position: calc(100% + 650px) -30px, center top;
+  }
+
+  &::after {
+    content: '';
+    width: 400px;
+    // height: ;
   }
 
   // Sorry for this selector :D
@@ -94,10 +102,9 @@
       width: auto;
       margin-top: 150px;
       position: relative;
-      top: -120px;
-      top: -30px;
+      top: -$hideTranslateY - 15px;
       transition: 0.05s transform;
-      transform: translateY(calc(-35px * var(--progress-3)));
+      transform: translateY(calc(#{-$hideTranslateY} * var(--progress-3)));
       opacity: var(--progress-3);
     }
   }
@@ -106,7 +113,7 @@
     font-size: 18px;
 
     @include mobile {
-      transform: translateY(calc(-35px * var(--progress-4)));
+      transform: translateY(calc(#{-$hideTranslateY} * var(--progress-4)));
       opacity: calc(1 - var(--progress-4));
     }
   }
@@ -122,7 +129,7 @@
       font-size: 22px;
       font-family: $fontBase;
       font-weight: 400;
-      transform: translateY(calc(-35px * var(--progress-4)));
+      transform: translateY(calc(#{-$hideTranslateY} * var(--progress-4)));
       opacity: calc(1 - var(--progress-4));
     }
   }

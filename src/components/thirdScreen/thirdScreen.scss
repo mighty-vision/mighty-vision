@@ -32,7 +32,7 @@
       position: relative;
       top: 50px;
       transition: transform 0.05s;
-      transform: translateY(calc(-35px * var(--progress-6)));
+      transform: translateY(calc(#{-$hideTranslateY} * var(--progress-6)));
       opacity: var(--progress-6);
     }
   }
@@ -55,8 +55,6 @@
 
     @include mobile {
       font-size: 22px;
-      // transform: translateY(calc(-35px * var(--progress-6)));
-      // opacity: calc(1 - var(--progress-6));
     }
   }
 

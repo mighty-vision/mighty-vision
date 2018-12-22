@@ -129,7 +129,8 @@
     }
 
     @include mobile {
-      margin-top: 8vh;
+      margin-top: 4vh;
+      padding-bottom: 4vh;
       height: auto;
       justify-content: center;
       align-items: center;

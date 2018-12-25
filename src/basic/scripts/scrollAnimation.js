@@ -29,10 +29,6 @@ export default function scrollAniation() {
 	})
 	.addTo(controller);
 
-	document.addEventListener('click', () => {
-		alert(window.innerHeight)
-	});
-
 
 	var start2 = secondScreenNode.getBoundingClientRect().top - bodyHeight - 100;
 
@@ -54,7 +50,6 @@ export default function scrollAniation() {
 	})
 	.on("progress", function (e) {
 		setCSSVar(document.body, 'progress-3', e.progress);
-		console.log('wrk')
 	})
 	.addTo(controller);
 

@@ -4,30 +4,14 @@
   flex-direction: column;
   transition: all 1s 0.05s;
 
-  // So nice selector! Wooow!
-  @include notMobile {
-    @at-root body:not([data-browser="edge"]):not([data-browser="ie"]):not(.showContent) & {
-      transition: all 0.7s;
-      transform: translateY(77vh);
-    }
-  }
-
   .titleAndDescription {
     width: 480px;
     margin: 50px calc((100% - 1040px) / 2) 0 auto;
     transition: all 1s 0.3s;
 
-    @include notMobile {
-      @at-root body:not([data-browser="edge"]):not([data-browser="ie"]):not(.showContent) & {
-        transition: all 0.3s;
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-
     @include mobile {
       width: auto;
-      margin: 200px 0 120px 0;
+      margin: 40vh 0 170px 0;
       padding: 0 20px;
       position: relative;
       top: 50px;
@@ -43,6 +27,7 @@
     @include mobile {
       font-size: 16px;
       line-height: 1.4;
+      opacity: calc(1 - var(--progress-7));
     }
   }
 
@@ -55,6 +40,7 @@
 
     @include mobile {
       font-size: 22px;
+      opacity: calc(1 - var(--progress-7));
     }
   }
 
@@ -136,10 +122,10 @@
       width: 220px;
       top: auto;
       right: 10px;
-      top: 30px;
+      top: 21vh;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateY(calc(-35vh * var(--progress-5)));
+      transform: translateY(calc(-25vh * var(--progress-5)));
       filter: drop-shadow(-7px calc(10px + 13px * var(--progress-5)) 4.5px rgba(0, 0, 0, 0.08));
     }
   }

@@ -118,10 +118,8 @@
     align-items: center;
     position: relative;
     z-index: 1;
-    opacity: 0;
     transition: all 0.7s 0.3s;
     will-change: transform;
-    transform: translateY(5px);
 
     @at-root body.showContent & {
       transition: all 1s;
@@ -129,12 +127,18 @@
     }
 
     @include mobile {
+      height: auto;
       margin-top: 4vh;
       padding-bottom: 4vh;
-      height: auto;
       justify-content: center;
       align-items: center;
+      transform: translateY(5px);
+      opacity: 0;
     }
+  }
+
+  @at-root body.startAnimation & .content {
+    animation: showContent 5.55s 1.25s forwards;
   }
 
   @at-root body.startAnimation & .content {
@@ -162,19 +166,18 @@
     }
   }
 
-  .titleAndDescription {
-    @include notMobile {
-      @at-root body.startAnimation & {
-        animation: showTitleAndDescription 0.55s 1.23s forwards;
-      } 
-    }
-  }
-
   @keyframes showTitleAndDescription {
     100% {
       transform: none;
     }
   }
+
+
+  // Show-content animation: title => description => scroll icon
+  $showAnimationTime: 0.7s;
+  $startAnimationDelay: 1.38s;
+  $delayBeetweenAmimations: 0.13s;
+  $animationEasing: ease;
 
   .title {
     font-family: $fontAlt;
@@ -183,8 +186,26 @@
     font-size: 65px;
     line-height: 1.2;
 
+    @include notMobile {
+      opacity: 0;
+
+      @at-root body.startAnimation & {
+        animation: show 
+                   $showAnimationTime 
+                   $startAnimationDelay 
+                   $animationEasing
+                   forwards;
+      }
+    }
+
     @include mobile {
       font-size: 48px;
+    }
+  }
+
+  @keyframes show {
+    100% {
+      opacity: 1;
     }
   }
 
@@ -192,6 +213,18 @@
     margin-top: 50px;
     font-size: 16px;
     line-height: 1.4;
+
+    @include notMobile {
+      opacity: 0;
+
+      @at-root body.startAnimation & {
+        animation: show 
+                   $showAnimationTime 
+                   ($startAnimationDelay + $delayBeetweenAmimations) 
+                   $animationEasing 
+                   forwards;
+      }
+    }
 
     @include mobile {
       margin-top: 25px;
@@ -204,6 +237,17 @@
     position: absolute;
     right: 10px;
     color: grey;
+    opacity: 0;
+
+    @include notMobile {
+      @at-root body.startAnimation & {
+        animation: show 
+                   $showAnimationTime 
+                   ($startAnimationDelay + $delayBeetweenAmimations * 2) 
+                   $animationEasing 
+                   forwards;
+      }
+    }
 
     @include mobile {
       display: none;
@@ -252,11 +296,11 @@
     @include mobile {
       width: 127px;
       height: 200px;
-      bottom: -40vh;
+      bottom: -35vh;
       right: 40px;
       will-change: transform, opacity;
       transition: all 0.05s linear;
-      transform: translateY(calc(-35vh * var(--progress-2)));
+      transform: translateY(calc(-25vh * var(--progress-2)));
     }
   }
 }

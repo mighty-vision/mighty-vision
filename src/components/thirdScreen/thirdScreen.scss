@@ -108,6 +108,12 @@
     background-image: url('#{$img}/code.png'); // Webp for this image make no sense
     filter: drop-shadow(-7px 20px 4.5px rgba(0, 0, 0, 0.08));
 
+    @include notMobile {
+      @at-root body[data-browser="safari"] & {
+        filter: none;
+      }
+    }
+
     @include hdpi {
       @at-root body.no-webp & {
         background-image: url('#{$img}/code2x.png');
@@ -123,7 +129,6 @@
       top: auto;
       right: 10px;
       top: 21vh;
-      will-change: transform, opacity;
       transition: all 0.05s linear;
       transform: translateY(calc(-25vh * var(--progress-5)));
       filter: drop-shadow(-7px calc(10px + 13px * var(--progress-5)) 4.5px rgba(0, 0, 0, 0.08));

@@ -135,7 +135,8 @@ body {
   opacity: 0;
 
   &.hide {
-    display: none;
+    pointer-events: none;
+    height: 0;
   }
 
   .scrolled {

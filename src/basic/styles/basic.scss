@@ -134,6 +134,10 @@ body {
   overflow-y: auto;
   opacity: 0;
 
+  @include mobile {
+    display: none;
+  }
+
   &.hide {
     pointer-events: none;
     height: 0;

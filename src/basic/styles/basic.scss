@@ -27,8 +27,15 @@
 }
 
 html {
-  overflow: hidden; // For correct parallax
-  background-color: #343437;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
+
+  @include notMobile {
+    &:not(.enableScroll) {
+      overflow: hidden;
+    }
+  }
 
   @include mobile {
     overflow-x: hidden;
@@ -38,20 +45,16 @@ html {
 
 body {
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   font-family: $fontBase;
   font-weight: 400;
-  -webkit-overflow-scrolling: touch;
-  -webkit-text-size-adjust: none;
-  scroll-behavior: smooth;
   background-color: white;
 
   &.disableTransitions * {
     transition: none !important;
   }
 
-  &.enableScroll {
+  @at-root html.enableScroll & {
     overflow-y: auto;
   }
 
@@ -111,46 +114,6 @@ html:not(.mac) {
   }
 }
 
-.parallax {
-  height: 100vh;
-  perspective: 300px;
-
-  @include mobile {
-    perspective: none;
-    height: auto;
-  }
-}
-
-.parallaxGroup {
-  position: relative;
-  transform-style: preserve-3d;
-}
-
-.parallaxLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.parallaxLayerFront {
-  z-index: 2;
-  pointer-events: none;
-
-  &.sensitive-1 {
-    transform: translateZ(85px) scale(0.8);
-  }
-
-  &.sensitive-2 {
-    transform: translateZ(55px) scale(0.8);
-  }
-
-  * {
-    pointer-events: auto;
-  }
-}
-
 body {
   --progress-1: 0;
   --progress-2: 0;
@@ -159,4 +122,24 @@ body {
   --progress-5: 0;
   --progress-6: 0;
   --progress-7: 0;
+}
+
+.inertScrollFixOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  overflow-y: auto;
+  opacity: 0;
+
+  &.hide {
+    display: none;
+  }
+
+  .scrolled {
+    width: 100%;
+    height: 300vh;
+  }
 }

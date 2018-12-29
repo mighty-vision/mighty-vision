@@ -14,13 +14,11 @@ var scroll = {
   setListeners() {
     initScreenNode.addEventListener('initScreenAnimationEnd', () => { 
       document.addEventListener('wheel', (e) => {
-        scrollPos = secondScreenNode.getBoundingClientRect().top;
-
         if(e.deltaY > 0 && !scroll.onContent) {
           scroll.toContent();
         }
 
-        if(scrollPos == 0 && e.deltaY < 0 && scroll.onContent) {
+        if(window.scrollY == 0 && e.deltaY < 0 && scroll.onContent) {
           scroll.toInitScreen();
         }
       }, { passive: true} );
@@ -53,18 +51,19 @@ var scroll = {
     document.body.classList.add('showContent');
   
     setTimeout(() => {
-      document.body.classList.add('enableScroll');
+      document.querySelector('html').classList.add('enableScroll');
+      document.querySelector('.inertScrollFixOverlay').classList.add('hide');
 
-      document.body.focus();
     }, scrollTime + 30);
   },
 
   toInitScreen() {
     scroll.onContent = false;
 
-    document.body.classList.remove('enableScroll');
-
-    document.body.blur();
+    document.querySelector('html').classList.remove('enableScroll');
+    document.querySelector('.inertScrollFixOverlay').scrollTo(0, 0);
+    document.querySelector('.inertScrollFixOverlay').classList.remove('hide');
+    document.querySelector('.inertScrollFixOverlay').focus();
 
     document.body.classList.remove('showContent');
   }

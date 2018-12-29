@@ -11,7 +11,10 @@
 	<link rel="alternate" hreflang="ru" href="http://mighty.vision">
 	<link rel="stylesheet" href="@{vars.baseDir}styles/index.css">
 </head>
-<body class="parallax disableTransitions" tabindex="0">
+<body class="disableTransitions">
+	<div class="inertScrollFixOverlay" tabindex="0">
+		<div class="scrolled"></div>
+	</div>
 
 	{{> initScreen }}
 	{{> secondScreen }}

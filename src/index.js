@@ -6,6 +6,7 @@ import focusOnlyWithKeys from './utils/scripts/focusOnlyWithKeys';
 // Basic
 import scroll from './basic/scripts/scrollToContent';
 import scrollAnimation from './basic/scripts/scrollAnimation';
+import analytics from './basic/scripts/analytics';
 
 // Components
 import initScreen from './components/initScreen/initScreen';
@@ -19,6 +20,7 @@ setTimeout(() => {
 
 detectWebp();
 detectBrowser();
+analytics();
 focusOnlyWithKeys();
 initScreen.init();
 contacts.init();

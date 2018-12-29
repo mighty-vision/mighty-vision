@@ -18,7 +18,7 @@ export default function scrollAniation() {
 
 	var controller = new ScrollMagic.Controller();
 
-	var start1 = initScreenDescriptionNode.getBoundingClientRect().top;
+	var start1 = initScreenDescriptionNode.getBoundingClientRect().top - 30;
 
 	new ScrollMagic.Scene({
 		duration: initScreenDescriptionNode.getBoundingClientRect().height,
@@ -33,7 +33,7 @@ export default function scrollAniation() {
 	var start2 = secondScreenNode.getBoundingClientRect().top - bodyHeight - 100;
 
 	new ScrollMagic.Scene({
-		duration: bodyHeight + 100,
+		duration: bodyHeight + 200,
 		offset: start2
 	})
 	.on("progress", function (e) {
@@ -42,7 +42,7 @@ export default function scrollAniation() {
 	.addTo(controller);
 
 
-	var start3 = secondScreenTitleNode.getBoundingClientRect().top - bodyHeight;
+	var start3 = secondScreenTitleNode.getBoundingClientRect().top - bodyHeight + 20;
 
 	new ScrollMagic.Scene({
 		duration: 70,
@@ -55,7 +55,7 @@ export default function scrollAniation() {
 
 
 	var start4 = secondScreenDescriptionNode.getBoundingClientRect().top + 
-							 secondScreenDescriptionNode.getBoundingClientRect().height / 2;
+							 secondScreenDescriptionNode.getBoundingClientRect().height / 2 - 30;
 
 	new ScrollMagic.Scene({
 		duration: secondScreenDescriptionNode.getBoundingClientRect().height / 2,
@@ -79,7 +79,7 @@ export default function scrollAniation() {
 	.addTo(controller);
 
 
-	var start6 = thirdScreenTitleNode.getBoundingClientRect().top - bodyHeight;
+	var start6 = thirdScreenTitleNode.getBoundingClientRect().top - bodyHeight - 30;
 
 	new ScrollMagic.Scene({
 		duration: 70,
@@ -90,7 +90,7 @@ export default function scrollAniation() {
 	})
 	.addTo(controller);
 
-	var start7 = thirdScreenDescriptionNode.getBoundingClientRect().top;
+	var start7 = thirdScreenDescriptionNode.getBoundingClientRect().top - 30;
 
 	new ScrollMagic.Scene({
 		duration: thirdScreenDescriptionNode.getBoundingClientRect().height,

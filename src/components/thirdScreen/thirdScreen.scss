@@ -16,7 +16,6 @@
       position: relative;
       top: 50px;
       transition: transform 0.05s;
-      transform: translateY(calc(#{-$hideTranslateY} * var(--progress-6)));
       opacity: var(--progress-6);
     }
   }

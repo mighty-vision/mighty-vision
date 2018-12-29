@@ -159,7 +159,6 @@
       width: 100%;
       margin-left: 0;
       padding: 0 20px;
-      transform: translateY(calc(#{-$hideTranslateY} * var(--progress-1)));
       opacity: calc(1 - var(--progress-1));
     }
   }
@@ -294,10 +293,10 @@
     @include mobile {
       width: 127px;
       height: 200px;
-      bottom: -35vh;
+      bottom: -330px;
       right: 40px;
       transition: all 0.05s linear;
-      transform: translateY(calc(-25vh * var(--progress-2)));
+      transform: translateY(calc(-35vh * var(--progress-2)));
     }
   }
 }

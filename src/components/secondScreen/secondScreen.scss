@@ -145,12 +145,6 @@
     background-image: url('#{$img}/magnifier.png'); // Webp for this image make no sense
     filter: drop-shadow(-7px 20px 4.5px rgba(0, 0, 0, 0.08));
 
-    @include notMobile {
-      @at-root body[data-browser="safari"] & {
-        filter: none;
-      }
-    }
-
     @include hdpi {
       @at-root body.no-webp & {
         background-image: url('#{$img}/magnifier.png');

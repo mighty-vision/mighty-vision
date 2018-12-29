@@ -2,6 +2,7 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  position: relative;
   transition: all 1s 0.05s;
 
   .titleAndDescription {
@@ -97,15 +98,20 @@
   }
 
   .code {
-    width: 325px * 0.97;
-    height: 253px * 0.97;
+    width: 325px * 0.85;
+    height: 253px * 0.85;
     position: absolute;
-    top: -70px;
+    top: 80px;
     right: calc((100% - 1040px) / 2 + 630px);
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-image: url('#{$img}/code.png'); // Webp for this image make no sense
     filter: drop-shadow(-7px 20px 4.5px rgba(0, 0, 0, 0.08));
+    will-change: transform;
+
+    @include notMobile {
+      transform: translateY(calc(-170px * var(--progress-2)));
+    }
 
     @include hdpi {
       @at-root body.no-webp & {

@@ -4,6 +4,7 @@
   color: white;
   transition: all 1s;
   position: relative;
+  will-change: transform, opacity;
 
   @include notMobile {
     background: url(#{$img}/bgSecondScreenRight.svg) repeat-y right top, 
@@ -135,15 +136,20 @@
   }
 
   .magnifier {
-    width: 225px * 0.7;
-    height: 354px * 0.7;
+    width: 225px * 0.77;
+    height: 354px * 0.77;
     position: absolute;
     top: 230px;
-    right: calc((100% - 1040px) / 2 + 150px);
+    right: calc((100% - 1040px) / 2 + 100px);
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-image: url('#{$img}/magnifier.png'); // Webp for this image make no sense
     filter: drop-shadow(-7px 20px 4.5px rgba(0, 0, 0, 0.08));
+    will-change: transform;
+
+    @include notMobile {
+      transform: translateY(calc(-150px * var(--progress-1)));
+    }
 
     @include hdpi {
       @at-root body.no-webp & {
@@ -158,9 +164,5 @@
     @include mobile {
       display: none;
     }
-  }
-
-  .parallaxLayer {
-    z-index: 1;
   }
 }

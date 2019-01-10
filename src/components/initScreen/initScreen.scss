@@ -138,14 +138,14 @@
   }
 
   @at-root body.startAnimation & .content {
-    animation: showContent 5.55s 1.25s forwards;
+    animation: showContent 0.8s 1.86s forwards;
   }
-
-  @at-root body.startAnimation & .content {
-    animation: showContent 0.55s 1.25s forwards;
-  }
-
+  
   @keyframes showContent {
+    50% {
+      transform: none;
+    }
+
     100% {
       opacity: 1;
       transform: none;
@@ -173,8 +173,8 @@
 
 
   // Show-content animation: title => description => scroll icon
-  $showAnimationTime: 0.7s;
-  $startAnimationDelay: 1.38s;
+  $showAnimationTime: 1s;
+  $startAnimationDelay: 1.98s;
   $delayBeetweenAmimations: 0.13s;
   $animationEasing: ease;
 
